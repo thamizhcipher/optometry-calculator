@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+
+    <!-- MATERIALIZE CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- AOS --> 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <div class="header scrollspy">
+        <div class="navbar-fixed">
+            <nav class="navbar">
+                <div class="nav-wrapper">
+                        <a href="#" class="brand-logo animate__animated animate__flash" > <img src="./img/abipravi.png" class="brand-img" /> </a>
+                        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="30" height="30" x="0" y="10" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g transform="matrix(-1,0,0,1,24,0)"><path fill="#faa41f" fill-rule="evenodd" d="M3 6a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm0 6a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm0 6a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z" clip-rule="evenodd" data-original="#000000" class="menu"></path></g></svg>
+                        </a>
+                        <ul  class="right hide-on-med-and-down">
+                            <li data-aos="fade-down" data-aos-duration="1000"><a href="#">Home</a></li>
+                            <li data-aos="fade-down" data-aos-duration="1200"><a href="#about-us">About Us</a></li>
+                            <li data-aos="fade-down" data-aos-duration="1500"><a href="#projects">Projects</a></li>
+                            <li data-aos="fade-down" data-aos-duration="1700"><a href="#Testimonials">Testimonials</a></li>
+                            <li data-aos="fade-down" data-aos-duration="1900"><a href="#footer">Contact Us</a></li>
+                        </ul>
+                </div>
+            </nav>
+        </div>  
+
+        <div class="progress">
+            <div class="determinate" id="determinate"></div>
+        </div>
+
+        <ul id="mobile-demo" class="sidenav" >
+            <div class="close-container sidenav-close">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="30" height="30" x="0" y="0" viewBox="0 0 348.333 348.334" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M336.559 68.611 231.016 174.165l105.543 105.549c15.699 15.705 15.699 41.145 0 56.85-7.844 7.844-18.128 11.769-28.407 11.769-10.296 0-20.581-3.919-28.419-11.769L174.167 231.003 68.609 336.563c-7.843 7.844-18.128 11.769-28.416 11.769-10.285 0-20.563-3.919-28.413-11.769-15.699-15.698-15.699-41.139 0-56.85l105.54-105.549L11.774 68.611c-15.699-15.699-15.699-41.145 0-56.844 15.696-15.687 41.127-15.687 56.829 0l105.563 105.554L279.721 11.767c15.705-15.687 41.139-15.687 56.832 0 15.705 15.699 15.705 41.145.006 56.844z" fill="#faa41f" data-original="#000000" class=""></path></g></svg>
+            </div>
+            <li><a href="#">Home</a></li>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#Testimonials">Testimonials</a></li>
+            <li><a href="#footer">Contact Us</a></li>
+        </ul>
+
+        <div class="intro">
+            <div class="intro-content">
+                <p class="welcome-text">Welcome to AP </p>
+                <p class="quote">Innovation Meets Creativity</p>
+                <a class="getQuote waves-effect waves-light btn-large modal-trigger" href="#modal1" style="background-color: #faa41f;">Get Quote</a>
+            </div>
+            <img class="intro-img" src="./img/abipravi.png" alt="company logo" /> 
+        </div>
+    </div>
+
+    <!-- MODAL FOR GET QUOTE -->
+
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+          <div class="flex-container modal-responsive">
+            <img src="./img/paper-plane.jpg" alt="Contact us image" class="contact-us-image">
+            <div class="right-content">
+              <h4>Get a Quote</h4>
+
+              <div class="input-field">
+                <label for="email">Email</label>
+                <input id="email" type="email" required> 
+              </div>
+               
+              <div class="input-field">
+                <label for="requirement">Describe your idea</label>
+                <textarea name="" class="materialize-textarea" id="requirement" required ></textarea>
+              </div>
+               
+              <div class="">
+                <button class="submit-btn waves-effect waves-light btn-small" type="submit">Submit</button>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+    </div>
+      
+
+
+
+    <!-- ABOUT-US-SECTION -->
+
+    <section id="about-us" class="scrollspy" data-aos="fade-right" data-aos-duration="1200" data-aos-once="true">
+
+        <div class="row container hoverable about-tab">
+            <div class="col s12">
+              <ul class="tabs">
+                <li class="tab col s6 l4 m4"><a class="active" href="#test1">About Us</a></li>
+                <li class="tab col s6 l4 m4"><a href="#test2">About college</a></li>
+                <li class="tab col s12 l4 m4"><a href="#test3">About department</a></li>
+              </ul>
+            </div>
+            <div id="test1" class="tab-content col s12 ">
+                Test1 Our company is dedicated to providing high-quality products and services to our customers. With years of experience in the industry, we strive to exceed customer expectations and deliver innovative solutions. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt, consequatur incidunt excepturi minus suscipit ab explicabo expedita saepe consequuntur omnis quam nisi accusamus eius, animi exercitationem rem ducimus itaque laborum.
+            </div>
+            <div id="test2" class="tab-content col s12 ">
+                Test2 At our company, we have a team of highly skilled professionals who are passionate about what they do. Our team members bring diverse expertise and work together to achieve our goals. We believe in fostering a collaborative and supportive work environment. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus delectus exercitationem repellat officia unde dolore, corrupti porro accusamus iste nobis adipisci nostrum quis earum molestiae culpa sapiente ex iusto repellendus.
+            </div>
+            <div id="test3" class="tab-content col s12">
+                Test3 Our mission is to make a positive impact in the world by providing sustainable and eco-friendly products. We are committed to promoting environmental consciousness and social responsibility through our business practices. Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem a asperiores tenetur mollitia recusandae. Eligendi saepe nemo non a quis magnam, reiciendis debitis maxime voluptates, fugit recusandae. Delectus, possimus facilis.
+            </div> 
+          </div>
+        
+          <ul class="collapsible container hoverable" data-aos="fade-right" data-aos-duration="1200">
+            <li class="active">
+              <div class="collapsible-header waves-effect">About Us</div>
+              <div class="collapsible-body">
+                <span>
+                    Test1 Our company is dedicated to providing high-quality products and services to our customers. With years of experience in the industry, we strive to exceed customer expectations and deliver innovative solutions. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt, consequatur incidunt excepturi minus suscipit ab explicabo expedita saepe consequuntur omnis quam nisi accusamus eius, animi exercitationem rem ducimus itaque laborum.
+                </span>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div class="collapsible-header waves-effect">About college</div>
+              <div class="collapsible-body">
+                <span>
+                    Test2 At our company, we have a team of highly skilled professionals who are passionate about what they do. Our team members bring diverse expertise and work together to achieve our goals. We believe in fostering a collaborative and supportive work environment. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus delectus exercitationem repellat officia unde dolore, corrupti porro accusamus iste nobis adipisci nostrum quis earum molestiae culpa sapiente ex iusto repellendus.
+                </span>
+            </div>
+            </li>
+            <li>
+              <div class="collapsible-header waves-effect">About department</div>
+              <div class="collapsible-body">
+                <span>
+                    Test3 Our mission is to make a positive impact in the world by providing sustainable and eco-friendly products. We are committed to promoting environmental consciousness and social responsibility through our business practices. Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem a asperiores tenetur mollitia recusandae. Eligendi saepe nemo non a quis magnam, reiciendis debitis maxime voluptates, fugit recusandae. Delectus, possimus facilis.
+                </span>
+                </div> 
+              </div>
+            </li>
+          </ul>
+
+    </section>
+
+
+    <!-- PROJECTS SECTION -->
+
+        <section id="projects" class="scrollspy">
+            <h3 class="phead">Inspired Creations</h3>
+            <div class="project-container">
+                <div class="project hoverable">
+                    <a href="#">
+                        <img class="pimg" src="./img/project.jpg" alt="Project Image">
+                    </a>
+    
+                    <p class="ptext">Shopify alternative with extended features</p>
+                </div>
+                <div class="project hoverable">
+                    <a href="#">
+                        <img class="pimg" src="./img/project.jpg" alt="Project Image">
+                    </a>
+    
+                    <p class="ptext">Shopify alternative with extended features</p>
+                </div>
+                <div class="project hoverable">
+                    <a href="#">
+                        <img class="pimg" src="./img/project.jpg" alt="Project Image">
+                    </a>
+    
+                    <p class="ptext">Shopify alternative with extended features</p>
+                </div>
+                <div class="project hoverable">
+                    <a href="#">
+                        <img class="pimg" src="./img/project.jpg" alt="Project Image">
+                    </a>
+    
+                    <p class="ptext">Shopify alternative with extended features</p>
+                </div>
+            </div>
+        </section>
+
+        
+
+
+<!-- TESTIMONIALS SECTION -->
+
+    <section id="Testimonials" class="scrollspy" >
+        <div class="carousel" data-aos="zoom-in-down" data-aos-offset="-100" data-aos-once="true"  data-aos-duration="800">
+            <h1>Testimonials</h1>
+            <a class="carousel-item" href="#one!">
+                <div class="testimonial">
+                    <div class="img-area">
+                        <img src="https://images.pexels.com/photos/17311686/pexels-photo-17311686/free-photo-of-young-woman-posing-on-house-roof.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load">
+                    </div>
+                    <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quos odit, exercitationem quod quam quo cum sapiente, minima maiores ab vero aspernatur dignissimos! Sed, laborum."</p>
+                    <h4>Hashtag</h4>
+                    <h5>Web Designer</h5>
+                </div>
+               
+            </a>
+            <a class="carousel-item" href="#one!">
+                <div class="testimonial">
+                    <div class="img-area">
+                        <img src="https://images.pexels.com/photos/17311686/pexels-photo-17311686/free-photo-of-young-woman-posing-on-house-roof.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load">
+                    </div>
+                    <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quos odit, exercitationem quod quam quo cum sapiente, minima maiores ab vero aspernatur dignissimos! Sed, laborum."</p>
+                    <h4>Hashtag</h4>
+                    <h5>Web Designer</h5>
+                </div>
+               
+            </a><a class="carousel-item" href="#one!">
+                <div class="testimonial">
+                    <div class="img-area">
+                        <img src="https://images.pexels.com/photos/17311686/pexels-photo-17311686/free-photo-of-young-woman-posing-on-house-roof.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load">
+                    </div>
+                    <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quos odit, exercitationem quod quam quo cum sapiente, minima maiores ab vero aspernatur dignissimos! Sed, laborum."</p>
+                    <h4>Hashtag</h4>
+                    <h5>Web Designer</h5>
+                </div>
+               
+            </a><a class="carousel-item" href="#one!">
+                <div class="testimonial">
+                    <div class="img-area">
+                        <img src="https://images.pexels.com/photos/17311686/pexels-photo-17311686/free-photo-of-young-woman-posing-on-house-roof.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load">
+                    </div>
+                    <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis quos odit, exercitationem quod quam quo cum sapiente, minima maiores ab vero aspernatur dignissimos! Sed, laborum."</p>
+                    <h4>Hashtag</h4>
+                    <h5>Web Designer</h5>
+                </div>
+               
+            </a>
+          </div>
+              
+    </section>
+
+    
+<!-- FOOTER -->
+
+    <section id="footer" class="scrollspy">
+        <footer>
+            <h3>Locate Us At</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, obcaecati!</p>
+                    <box-icon class="icons" name='instagram' type='logo' ></box-icon>
+                    <box-icon class="icons" name='gmail' type='logo' ></box-icon>
+                    <box-icon class="icons" name='linkedin' type='logo' ></box-icon>
+            <p>Copyrights © ABIPRAVI</p>
+        </footer>
+    </section>
+
+
+
+
+
+
+    
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./index.js"></script>
+</body>
+</html>
