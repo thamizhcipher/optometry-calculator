@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', function() {
   var elems = document.querySelectorAll('.scrollspy');
   var options=
   {
-    throttle:1000
+    scrollOffset: 50,
   }
   var instances = M.ScrollSpy.init(elems,options);
 });
@@ -110,3 +110,33 @@ function myFunction() {
   var scrolled = (winScroll / height) * 100;
   document.getElementById("determinate").style.width = scrolled + "%";
 }
+
+// FLOATING ACTION BUTTON
+
+document.addEventListener('DOMContentLoaded', function() {
+  var elems = document.querySelectorAll('.fixed-action-btn');
+  var instances = M.FloatingActionButton.init(elems);
+});
+
+topbtn = document.getElementById('top-btn')
+
+window.addEventListener('scroll', function() 
+{  
+  if (window.scrollY > 300) {
+    topbtn.classList.add('show');
+  } else {
+    topbtn.classList.remove('show');
+  }
+});
+
+
+topbtn.addEventListener('click',function(e)
+{
+  e.preventDefault();
+  document.querySelector('html, body').scrollTo({
+    top: 0,
+    behavior: 'smooth',
+    duration: 300
+  });
+  
+})

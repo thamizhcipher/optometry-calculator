@@ -209,24 +209,37 @@ nav ul a
 
 .project-container
 {
+    /* margin: auto; */
     display: flex;
     flex-wrap: wrap;
-    padding: 2% 10%;
+    padding-left: 3%;
+    padding-right: 3%;
 }
 
 .project
 {
     margin: 2rem 2rem 2.5rem 5rem;
+    margin-top: 8rem;
     display: flex;
     flex-direction: column;
-    width: 30rem;
+    height: 500px;
+    width: 360px;
     border: 1.5px solid #e2e8f0;
     border-radius: 15px;
-    
+    background: linear-gradient(to top, #e4b534 50%, #eaedf2 50%);
+    background-size: 100% 200%;
+    background-position: top ;
+    transition: all .5s ease-out;
 }
 .project:hover
 {
-    margin-top: 1.5rem;
+    background-position: bottom ;
+    height: 500px;
+}
+
+.project:hover .img-container 
+{
+    border: 8px solid #e4b534; 
 }
 
 .phead
@@ -240,18 +253,40 @@ nav ul a
 
 .ptext
 {
-    background-color: white;
+    /* background-color: white; */
     padding:5px 0 5px 10px;
-    font-weight:650 ;
+    font-size: 20px;
     text-align: center;
 
 }
 
+.project-title
+{
+    text-align: center;
+    color: #164037;
+}
+
+.img-container
+{
+    height: 200px;
+    width: 200px;
+    margin: 0 auto;
+    margin-top: -7rem;
+    overflow: hidden;
+    border-radius: 50%;
+    /* border: solid 8px #EAEDF2; */
+}
+
+
+
 .pimg
 {
-    width: 29.95rem;
-    border-top-left-radius:5px;
-    border-top-right-radius:5px;
+    width: 100%;
+    height: 200px;
+    /* border-top-left-radius:5px;
+    border-top-right-radius:5px; */
+    /* border-radius: 50%; */
+    /* border: inset 8px #faa41f; */
 }
 
 /* CAROUSEL */
@@ -336,6 +371,11 @@ nav ul a
 {
     margin: 1.25rem;
 }
+.top-icon
+{
+    width: 3rem;
+    height: 4rem;
+}
 
 #modal1
 {
@@ -354,12 +394,17 @@ nav ul a
     color: black;
     font-weight: 500;
 }
-.submit-btn:hover
+.submit-btn:hover 
 {
     border-radius: 20px;
     background-color: #000;
     color: white;
     font-weight: 500;
+}
+.submit-btn:focus
+{
+    background-color: #000;
+    color: white;
 }
 
 .flex-container
@@ -411,6 +456,28 @@ nav ul a
 {
     background-color: #faa41f;
 }
+
+/* TO TOP BUTTON */
+
+.fixed-action-btn 
+{
+    visibility: hidden;
+    opacity: 0;
+}
+.fixed-action-btn.show
+{
+    visibility: visible;
+    opacity: 1;
+}
+.btn-floating
+{
+    background-color: #e2e8f0;
+}
+.btn-floating:hover
+{
+    background-color: #e4b534;
+}
+
 
 @media  screen and (max-width:763px) 
 {
@@ -571,9 +638,10 @@ nav ul a
     } */
     .project
     {
-        width: 20rem;
+        width: 360px;
+        height: 450px;
         margin:auto;
-        margin-top: 3rem;
+        margin-top: 8rem;
     }
     .pimg
     {
