@@ -303,7 +303,7 @@ nav ul a
 .carousel .carousel-item
 {
     width: 450px;
-    background-image: url("/img/quotes2.png");
+    background-image: url("./img/quotes2.png");
     background-size: cover;
     background-color: rgba(0, 0, 0,0.5);
     /* background-color: #eaedf2; */
