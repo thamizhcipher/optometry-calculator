@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Website</title>
+
+    <!-- MATERIALIZE CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- AOS --> 
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="opt.css">
+</head>
+<body>
+    
+    <div class="header scrollspy">
+        <div class="navbar-fixed">
+            <nav class="navbar">
+                <div class="nav-wrapper">
+                        <a href="index.html#" class="brand-logo animate__animated animate__flash" > <img src="./img/abipravi.png" class="brand-img" /> </a>
+                        <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                            <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="30" height="30" x="0" y="10" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g transform="matrix(-1,0,0,1,24,0)"><path fill="#faa41f" fill-rule="evenodd" d="M3 6a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm0 6a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm0 6a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z" clip-rule="evenodd" data-original="#000000" class="menu"></path></g></svg>
+                        </a>
+                        <ul  class="right hide-on-med-and-down">
+                            <li data-aos="fade-down" data-aos-duration="1000"><a href="index.html#">Home</a></li>
+                            <li data-aos="fade-down" data-aos-duration="1200"><a href="index.html#about-us">About Us</a></li>
+                            <li data-aos="fade-down" data-aos-duration="1500"><a href="index.html#projects">Projects</a></li>
+                            <li data-aos="fade-down" data-aos-duration="1700"><a href="index.html#Testimonials">Testimonials</a></li>
+                            <li data-aos="fade-down" data-aos-duration="1900"><a href="#footer">Contact Us</a></li>
+                        </ul>
+                </div>
+            </nav>
+        </div>  
+
+        <div class="progress">
+            <div class="determinate" id="determinate"></div>
+        </div>
+
+        <ul id="mobile-demo" class="sidenav" >
+            <div class="close-container sidenav-close">
+                <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="30" height="30" x="0" y="0" viewBox="0 0 348.333 348.334" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g><path d="M336.559 68.611 231.016 174.165l105.543 105.549c15.699 15.705 15.699 41.145 0 56.85-7.844 7.844-18.128 11.769-28.407 11.769-10.296 0-20.581-3.919-28.419-11.769L174.167 231.003 68.609 336.563c-7.843 7.844-18.128 11.769-28.416 11.769-10.285 0-20.563-3.919-28.413-11.769-15.699-15.698-15.699-41.139 0-56.85l105.54-105.549L11.774 68.611c-15.699-15.699-15.699-41.145 0-56.844 15.696-15.687 41.127-15.687 56.829 0l105.563 105.554L279.721 11.767c15.705-15.687 41.139-15.687 56.832 0 15.705 15.699 15.705 41.145.006 56.844z" fill="#faa41f" data-original="#000000" class=""></path></g></svg>
+            </div>
+            <li><a href="index.html#">Home</a></li>
+            <li><a href="index.html#about-us">About </a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#Testimonials">Testimonials</a></li>
+            <li><a href="#footer">Contact Us</a></li>
+        </ul>
+    </div>
+
+<!-- DROPDOWN -->
+    <button class='dropdown-trigger btn waves-effect' href='#' data-target='dropdown1'><b>Other calculators</b></button>
+
+    <!-- Dropdown Structure -->
+    <ul id='dropdown1' class='dropdown-content'>
+        <li>
+            <a onclick="changeContent('opt1')" href="#!">AC/A ratio(Heterophoria)</a>
+        </li>
+        <li>
+            <a onclick="changeContent('opt2')" href="#!">AC/A ratio(Gradient)</a>
+        </li>
+        <li>
+            <a href="#!" onclick="changeContent('opt3')">Amplitude of accommodation</a>
+        </li>
+        <li>
+            <a href="#!" onclick="changeContent('opt4')">Sheard's criterion</a>
+        </li>
+        <li>
+            <a href="#!" onclick="changeContent('opt5')">Percival criterion </a>
+        </li>
+        <li>
+            <a href="#!" onclick="changeContent('opt6')">hofstetter formula</a>
+        </li>
+        <li>
+            <a href="#!" onclick="changeContent('opt7')">Bielschowsky’s Head Tilt Test</a>
+        </li>
+    </ul>
+        
+
+
+
+
+
+
+<!-- CALCULATOR 1-->
+    <div class="opt1 opt" id="calculator-opt1">
+        <h3 class="center-align">AC/A Ratio Calculator</h3>
+        <p class="instruction"> <span>Note:</span> Provide measured parameters to calculate AC/A ratio.</p>
+        <hr>
+
+        <form id="presbyopicForm">
+            <label for="ipd">Inter Pupillary Distance (cm): </label>
+            <input type="number" id="ipd" required step="any" min="0"><br>
+          
+            <label for="nfd">Near Fixation Distance (cm): </label>
+            <input type="number" id="nfd" required step="any" min="0"><br>
+          
+            <label for="hn">Heterophoria at Near (prism diopters, eso in + and exo in -): </label>
+            <input type="number" id="hn" required><br>
+          
+            <label for="hd">Heterophoria at Distance (prism diopters, eso in + and exo in -): </label>
+            <input type="number" id="hd" required><br>
+          
+            <button class="waves-effect waves-light btn" type="button" onclick="calculateACARatio()">Calculate</button>
+
+        </form>
+        <h5>Result:</h5>
+        <p class="result" id="result"></p>
+        <HR></HR>
+        <div class="formula">
+            <p class="instruction"> <span >Formula</span> 
+                <img class="formula-img" style="width: 250px;" src="img/vision-formula.png" alt="formula">
+                <li class="instruction">Esophoria is plus, Exophoria is minus.</li>
+                <li class="instruction">Where IPD is inter pupillary distance in centimetres.</li>
+                <li class="instruction">NFD is Near fixation distance in metres.</li>
+                <li class="instruction">Hn is Heterophoria at Near in prism diopters.</li>
+                <li class="instruction">Hd is Heterophoria at distance in prism diopters.</li>
+            </p>
+        </div>
+    </div>
+
+
+
+<!-- CALCULATOR 2 -->
+
+    <div class="opt1 opt" id="calculator-opt2">
+        <h3 class="center-align">AC/A Ratio Calculator(Gradient method)</h3>
+        <p class="instruction">
+            <span>Note:</span>Select (sphere to cyl) or (cyl to sphere) based on your requirement.</p>
+
+        <p class="instruction"><span>Instructions:</span> Enter the baseline deviation (without lenses), deviation with lenses, and lens power below.</p>
+        <hr>
+        
+        <form  id="presbyopicForm">
+            <label for="deviationWithoutLenses">Original Deviation(without lenses)(eso + exo -):</label>
+            <input type="number" id="deviationWithoutLenses" placeholder="Enter baseline deviation" required>
+
+            <label for="deviationWithLenses">Deviation with Lenses(eso + exo -):</label>
+            <input type="number" id="deviationWithLenses" placeholder="Enter deviation with lenses" required>
+
+            <label for="lensPower">Lens Power:</label>
+            <input type="number" id="lensPower" placeholder="Enter lens power" required>
+        </form>
+
+        <button class="waves-effect waves-light btn" onclick="calculateACARatio2()">Calculate</button>
+
+        <h6>Result:</h6>
+        <p class="result" id="acARatioResult"></p>
+
+        <hr>
+
+        <div class="formula">
+            <p class="instruction">
+                <span>Formula:</span> AC/A Ratio = (DL - DO) / p <br>
+                <li class="instruction">Where DL is the Deviation with lenses, </li>
+                <li class="instruction">DO is the Original Deviation without lenses,</li>
+                <li class="instruction">p is the power of the lenses used to relax accommodation</li>
+                <li class="instruction">The Gradient method is inaccurate because it does not take into account the patient's IPD</li>
+            
+        </div>
+    </div>
+
+
+<!-- CALCULATOR 3 -->
+
+    <div class="opt1 opt" id="calculator-opt3">
+        <h3 class="center-align">Amplitude of Accommodation Calculator</h3>
+
+        <p class="instruction">
+            <span>Instructions:</span>  Enter either the Near Point of Accommodation in centimeters or the Amplitude of Accommodation in diopters to get the calculation for both. <br>Note: Use practical values .</p>
+    
+        <form id="presbyopicForm">
+            <label for="nearPoint">Enter Near Point of Accommodation (in cm): </label>
+            <input type="number" id="nearPoint" placeholder="Enter distance in cm" oninput="calculateAmplitude()">
+
+            <label for="amplitude">Amplitude of Accommodation (in diopters): </label>
+            <input type="number" id="amplitude" placeholder="Enter amplitude in diopters" oninput="calculateNearPoint()">
+        </form>
+    
+
+    
+        <hr>
+    
+        <div class="formula">
+            <p class="instruction">
+                <span>Formula:</span>
+                Amplitude of Accommodation (in diopters) = 100 / Near Point of Accommodation (in cm)    
+            </p>
+        </div>
+    </div>
+
+
+
+<!-- calculator 4  -->
+
+    <div class="opt1 opt" id="calculator-opt4">
+        <h3 class="center-align">Prism Calculator</h3>
+        <form id="presbyopicForm">
+            <label for="phoria">Input Phoria Prism Diopters:</label>
+            <input type="number" id="phoria" placeholder="Enter phoria prism" oninput="calculatePrism()">
+        
+            <label for="compensatingVergence">Input Compensating Fusional Vergence Prism Diopters:</label>
+            <input type="number" id="compensatingVergence" placeholder="Enter compensating vergence prism" oninput="calculatePrism()">
+        </form>
+    
+        <h6 style="font-weight: bold;">Results:</h6>
+        <p class="result">Output Prism: <span id="output"></span> prism</p>
+        <div class="formula">
+            <p class="instruction">
+                <span>Formula:</span>
+                Prism = 2/3 *demand -1/3* reserve  
+            </p>
+        </div>
+    </div>
+
+
+<!-- CALCULATOR 5 -->
+
+    <div class="opt1 opt" id="calculator-opt5">
+        <h3 class="center-align">Percival Criterion Calculator</h3>
+
+        
+    
+        <form action="" id="presbyopicForm">
+            <label for="inputG">Enter greater lateral limit (G) prism diopters:</label>
+            <input type="number" id="inputG" step="0.1" oninput="calculatePrism5()">
+        
+            <label for="inputL">Enter lesser lateral limit (L) prism diopters:</label>
+            <input type="number" id="inputL" step="0.1" oninput="calculatePrism5()">
+        </form>
+        
+        <p class="result">Result: <span id="result5">0.00</span> prism diopters</p>
+        <hr>
+        
+        <div class="formula">
+            <p class="instruction"> <span>Formula:</span>
+                p=⅓ G - ⅔ L
+                <li class="instruction">where</li>
+                <li class="instruction">P = prism to be prescribed</li>
+                <li class="instruction">G = greater of the two lateral limits (base-in or base-out)</li>
+                <li class="instruction">L = lesser of the two lateral limits (base-in or base-out)</li>
+            </p>
+        </div>
+    </div>
+
+
+<!-- CALCULATOR 6 -->
+
+    <div class="opt1 opt" id="calculator-opt6">
+        <h3 class="center-align">Hofstetter Calculator</h3>
+        <p class="instruction">Enter age to calculate minimum, average, and maximum amplitude of accommodation.</p>
+        <hr>
+        
+        <form id="presbyopicForm">
+            <label for="ageMinimum">Enter Age for Minimum Amplitude:</label>
+            <input type="number" id="ageMinimum" oninput="calculateAmplitude('minimum')">
+            <label for="ageAverage">Enter Age for Average Amplitude:</label>
+            <input type="number" id="ageAverage" oninput="calculateAmplitude('average')">
+            <label for="ageMaximum">Enter Age for Maximum Amplitude:</label>
+            <input type="number" id="ageMaximum" oninput="calculateAmplitude('maximum')">
+       
+          <h6>Result</h6>
+          <p class="result" id="resultMinimum"></p>
+          <p class="result" id="resultAverage"></p>
+          <p class="result" id="resultMaximum"></p>
+        </form>
+        
+
+        <div class="formula">
+            <p class="instruction"> <span>Formula:</span>
+                <li class="instruction">Minimum Amplitude: 15 - age/4</li>
+                <li class="instruction">Average Amplitude: 18.5 - age/3 </li>
+                <li class="instruction">Maximum Amplitude: 25 - age/5</li>
+                <li class="instruction">L = lesser of the two lateral limits (base-in or base-out)</li>
+            </p>
+        </div>
+
+
+    </div>
+
+
+<!-- CALCULATOR 7 -->
+
+    <div class="opt1 opt" id="calculator-opt7">
+        <h3>Bielschowsky's Head Tilt Tes</h3>
+
+        <form id="presbyopicForm">
+            <label for="primaryPosition">Step 1: Determine which eye is hypertropic in primary position.</label>
+            <select id="primaryPosition" style="display: block;width: 20%;">
+                <option value="right">Right eye hypertropic</option>
+                <option value="left">Left eye hypertropic</option>
+            </select>
+
+            <label for="gazeDirection">Step 2: Determine whether the hypertropia increases on right or left gaze.</label>
+            <select id="gazeDirection" style="display: block;width: 20%;">
+                <option value="right">Increases on right gaze</option>
+                <option value="left">Increases on left gaze</option>
+            </select>
+
+            <label for="headTilt">Step 3: Determine whether the hypertropia increases on right or left head tilt.</label>
+            <select id="headTilt" style="display: block;width: 20%;">
+                <option value="right">Increases on right head tilt</option>
+                <option value="left">Increases on left head tilt</option>
+            </select>
+
+            <button class="waves-effect waves-light btn" onclick="submitTest()">Calculate</button>
+        </form>
+    
+        <h6>Result:</h6>
+        <p id="result7" class="result"></p>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- FOOTER -->
+
+    <section id="footer" class="scrollspy">
+        <footer>
+            <h3>Locate Us At</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, obcaecati!</p>
+                  <a href="">
+                    <box-icon class="icons" name='instagram' type='logo' ></box-icon>
+                  </a>  
+                  <a href="">
+                    <box-icon class="icons" name='gmail' type='logo' ></box-icon>
+                  </a>
+                <a href="">
+                    <box-icon class="icons" name='linkedin' type='logo' ></box-icon>
+                </a>
+                    
+            <p>Copyrights © OPTOMETRY</p>
+        </footer>
+    </section>
+
+    <!-- TO TOP BUTTON -->
+
+    <div class="fixed-action-btn" id="top-btn">
+        <a class="btn-floating btn-large" href="#">
+            <box-icon class="top-icon" name='chevron-up' type='solid' data-size="64" ></box-icon>
+        </a>
+    </div>
+
+
+
+
+    
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./index.js"></script>
+    <script src="./vision.js"></script>
+
+
+</body>
+</html>

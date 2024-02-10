@@ -241,7 +241,7 @@ hr
 
 .formula
 {
-    margin: 1rem 15rem;
+    margin: 1rem;
     
 }
 
@@ -259,17 +259,27 @@ span{
 #dropdown1
 {
     width: 15rem!important;
-    height: 35rem!important;
+    height: 32rem!important;
+    border: 5px solid #faa41f;
+    border-radius: 3px;
 }
 .dropdown-content li>a
 {
     color: black;
     font-weight: 400;
     font-size: 20px;
-    border-bottom: 2px solid #faa41f;
-    /* border-top: 2px solid #faa41f; */
-    /* border-radius: 10px; */
-    margin: 5px;
+    border-bottom: 3px solid #faa41f;
+}
+
+.dropdown-content li:last-child a
+{
+    border: none;
+}
+
+
+.result
+{
+    font-size: 16px;
 }
 
 /* .dropdown-content li>a:hover, .dropdown-content li.active
@@ -278,7 +288,6 @@ span{
     color: white;
 }
  */
-
 
 
 
@@ -314,7 +323,11 @@ span{
     }
     .formula
     {
-        margin: 1rem auto;
-        
+        margin: 1rem;
+    }
+    .center-align
+    {
+        font-size: 2rem;
+        font-weight: bold;
     }
 }
