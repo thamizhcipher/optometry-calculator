@@ -74,42 +74,19 @@ function displayResult(resultElementId, result) {
 
 function calculatePrescription() {
   // Get input values
-  const sphereInput = document.getElementById('sphere2');
-  const cylinderInput = document.getElementById('cylinder2');
-  const axisInput = document.getElementById('axis2');
-  const vertexDistanceInput = document.getElementById('vertexDistance2');
-  const selectionInput = document.getElementById('selection');
-
-  const sphere = parseFloat(sphereInput.value);
-  const cylinder = parseFloat(cylinderInput.value) || 0; // Default to 0 if not provided
-  const axis = parseFloat(axisInput.value) || 0; // Default to 0 if not provided
-  const vertexDistance = parseFloat(vertexDistanceInput.value);
-
-  // Check if any input is missing or invalid
-  if (isNaN(sphere) || isNaN(vertexDistance) || selectionInput.value === '') {
-    let errorMessage = "Please enter valid numeric values for:";
-    if (isNaN(sphere)) errorMessage += " Sphere,";
-    if (isNaN(vertexDistance)) errorMessage += " Vertex Distance,";
-    if (selectionInput.value === '') errorMessage += " Conversion";
-
-    errorMessage = errorMessage.replace(/,\s*$/, ""); // Remove the trailing comma
-    document.getElementById('result2').innerText = errorMessage;
-    return;
-  }
-
-  // Check if vertex distance is a non-negative value
-  if (vertexDistance < 0) {
-    document.getElementById('result').innerText = "Please enter a non-negative value for Vertex Distance.";
-    return;
-  }
-
-  // Determine the conversion type
-  const conversionType = selectionInput.value === 'specsToCL' ? 'Specs to CL' : 'CL to Specs';
+  const sphere = parseFloat(document.getElementById('sphere').value);
+  const cylinderInput = document.getElementById('cylinder').value;
+  const cylinder = cylinderInput ? parseFloat(cylinderInput) : 0; // Consider 0 if input is empty
+  const axisInput = document.getElementById('axis').value;
+  const axis = axisInput ? parseFloat(axisInput) : 0; // Consider 0 if input is empty
+  const vertexDistanceInput = document.getElementById('vertexDistance').value;
+  const vertexDistance = vertexDistanceInput ? parseFloat(vertexDistanceInput) / 1000 : 0; // convert to meters, consider 0 if input is empty
+  const selection = document.getElementById('selection').value;
 
   // Calculate corrected powers
   let correctedPower1, correctedPower2, correctedCylinder;
 
-  if (selectionInput.value === 'specsToCL') {
+  if (selection === 'specsToCL') {
     correctedPower1 = 1 / (1 / sphere - vertexDistance);
     correctedPower2 = 1 / (1 / (sphere + cylinder) - vertexDistance);
     correctedCylinder = correctedPower2 - correctedPower1;
@@ -123,7 +100,7 @@ function calculatePrescription() {
   const correctedSphereSign = correctedPower1 >= 0 ? '+' : ''; // Add "+" sign for positive sphere
   const correctedCylinderSign = correctedCylinder >= 0 ? '+' : ''; // Add "+" sign for positive cylinder
 
-  document.getElementById('result2').innerHTML = `Corrected Prescription (${conversionType}): ${correctedSphereSign}${correctedPower1.toFixed(2)} DS / ${correctedCylinderSign}${correctedCylinder.toFixed(2)} DC x ${axis}`;
+  document.getElementById('result').innerText = `Corrected Prescription: ${correctedSphereSign}${correctedPower1.toFixed(2)} DS / ${correctedCylinderSign}${correctedCylinder.toFixed(2)} DC x ${axis}`;
 }
 
 

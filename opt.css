@@ -259,19 +259,29 @@ span{
 #dropdown1
 {
     width: 15rem!important;
+    height: 35rem!important;
 }
 .dropdown-content li>a
 {
     color: black;
     font-weight: 400;
     font-size: 20px;
+    border-bottom: 2px solid #faa41f;
+    /* border-top: 2px solid #faa41f; */
+    /* border-radius: 10px; */
+    margin: 5px;
 }
 
-.dropdown-content li>a:hover, .dropdown-content li.active
+/* .dropdown-content li>a:hover, .dropdown-content li.active
 {
     background-color: #faa41f;
     color: white;
 }
+ */
+
+
+
+
 
 @media screen and (max-width:1473px) {
     .opt
