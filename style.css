@@ -1,3 +1,7 @@
+*
+{
+    font-family: "Outfit", sans-serif;
+}
 /* HEDAER SECTION */
 .header
 {
@@ -550,6 +554,7 @@ nav ul a
     {
         width: 25rem;
         height: 25rem;
+        margin: 0;
     }
     .quote
     {

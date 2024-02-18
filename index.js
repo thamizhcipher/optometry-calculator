@@ -141,4 +141,20 @@ topbtn.addEventListener('click',function(e)
   
 })
 
+// USER COUNT
+let count=localStorage.getItem('userCount')||20;
+
+function userCount()
+{
+  console.log(count);
+  count++;
+  localStorage.setItem('userCount',count);
+}
+
+
+
+document.addEventListener('DOMContentLoaded',()=>{
+  document.getElementById('user').innerText=count;
+})
+
   

@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Website</title>
-
+    <title>Optometry calculator hub</title>
+ 
     <!-- MATERIALIZE CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
+    <!-- FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
     <!-- AOS --> 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
@@ -21,7 +24,7 @@
         <div class="navbar-fixed">
             <nav class="navbar">
                 <div class="nav-wrapper">
-                        <a href="index.html#" class="brand-logo animate__animated animate__flash" > <img src="./img/abipravi.png" class="brand-img" /> </a>
+                        <a href="index.html#" class="brand-logo animate__animated animate__flash" > <img src="img/logo-removebg-preview.png" class="brand-img" /> </a>
                         <a href="#" data-target="mobile-demo" class="sidenav-trigger">
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" width="30" height="30" x="0" y="10" viewBox="0 0 24 24" style="enable-background:new 0 0 512 512" xml:space="preserve" class=""><g transform="matrix(-1,0,0,1,24,0)"><path fill="#faa41f" fill-rule="evenodd" d="M3 6a1 1 0 0 1 1-1h16a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm0 6a1 1 0 0 1 1-1h10a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1zm0 6a1 1 0 0 1 1-1h5a1 1 0 1 1 0 2H4a1 1 0 0 1-1-1z" clip-rule="evenodd" data-original="#000000" class="menu"></path></g></svg>
                         </a>
@@ -29,7 +32,7 @@
                             <li data-aos="fade-down" data-aos-duration="1000"><a href="index.html#">Home</a></li>
                             <li data-aos="fade-down" data-aos-duration="1200"><a href="index.html#about-us">About Us</a></li>
                             <li data-aos="fade-down" data-aos-duration="1500"><a href="index.html#projects">Projects</a></li>
-                            <li data-aos="fade-down" data-aos-duration="1700"><a href="index.html#Testimonials">Testimonials</a></li>
+                            <li data-aos="fade-down" data-aos-duration="1700"><a href="index.html#Formulas">Formulas</a></li>
                             <li data-aos="fade-down" data-aos-duration="1900"><a href="#footer">Contact Us</a></li>
                         </ul>
                 </div>
@@ -47,7 +50,7 @@
             <li><a href="index.html#">Home</a></li>
             <li><a href="index.html#about-us">About </a></li>
             <li><a href="index.html#projects">Projects</a></li>
-            <li><a href="index.html#Testimonials">Testimonials</a></li>
+            <li><a href="index.html#Formulas">Formulas</a></li>
             <li><a href="index.html#footer">Contact Us</a></li>
         </ul>
     </div>
@@ -58,26 +61,14 @@
     <!-- Dropdown Structure -->
     <ul id='dropdown1' class='dropdown-content'>
         <li>
-            <a onclick="changeContent('opt1')" href="#!">Presbyopic Addition Calculator</a>
+            <a onclick="changeContent('opt1')" href="#!">Vertex distance calculator</a>
         </li>
         <li>
-            <a onclick="changeContent('opt2')" href="#!">Vertex Distance Calculator</a>
+            <a onclick="changeContent('opt2')" href="#!">Base curves calculator </a>
         </li>
         <li>
-            <a href="#!" onclick="changeContent('opt3')">Simple transposition</a>
+            <a href="#!" onclick="changeContent('opt3')">LARS rule</a>
         </li>   
-        <li>
-            <a href="#!" onclick="changeContent('opt4')">Toric Transposition</a>
-        </li>
-        <li>
-            <a href="#!" onclick="changeContent('opt5')">Spherical equivalent</a>
-        </li>
-        <li>
-            <a href="#!" onclick="changeContent('opt6')">Retinoscopy working distance </a>
-        </li>
-        <li>
-            <a href="#!" onclick="changeContent('opt7')">Visual Acuity</a>
-        </li>
     </ul>
         
 
@@ -89,34 +80,30 @@
 <!-- CALCULATOR 1-->
     <div class="opt1 opt" id="calculator-opt1">
         <h3 class="center-align">Vertex Distance Effective Power Calculator</h3>
-        <p class="instruction"> <span>Note:</span> Select (sphere to cyl) or (cyl to sphere) based on your requirement.</p>
-        <p class="instruction"><span>Instructions:</span> It can calculate vertex distance for spherical and spherocylinderical prescription.</p>
-        <p class="instruction">Can calculate for both keeping 1/2 and 1/3 amplitude reserve</p>
+        <p class="instruction"> <span>Note:</span> Select (sphere to cyl) or (cyl to sphere) based on your requirement</p>
+        <p class="instruction"> <span> Instructions:</span> It can calculate vertex distance for spherical and spherocylinderical prescription.</p>
         <hr>
 
         <form id="presbyopicForm">
-            <label for="sphere">Sphere:</label>
-            <input type="number" id="sphere" step="0.25" placeholder="Enter sphere">
+            <label for="sphere1">Sphere:</label>
+            <input type="number" id="sphere1" step="0.25" placeholder="Enter sphere">
           
-            <label for="cylinder">Cylinder:</label>
-            <input type="number" id="cylinder" step="0.25" placeholder="Enter cylinder">
+            <label for="cylinder1">Cylinder:</label>
+            <input type="number" id="cylinder1" step="0.25" placeholder="Enter cylinder">
           
-            <label for="axis">Axis:</label>
-            <input type="number" id="axis" placeholder="Enter axis" min="1" max="180">
+            <label for="axis1">Axis:</label>
+            <input type="number" id="axis1" placeholder="Enter axis" min="1" max="180">
           
-            <label for="vertexDistance">Vertex Distance (mm):</label>
-            <input type="number" id="vertexDistance" placeholder="Enter vertex distance" min="0">
+            <label for="vertexDistance1">Vertex Distance (mm):</label>
+            <input type="number" id="vertexDistance1" placeholder="Enter vertex distance" min="0">
           
-            <label for="selection">Conversion:</label>
-            <select id="selection" style="display: block;width: 20%;">
+            <label for="selection1">Conversion:</label>
+            <select id="selection1" style="display: block;width: 20%;">
               <option value="">Select</option>
               <option value="specsToCL">Specs to CL</option>
               <option value="clToSpecs">CL to Specs</option>
             </select>
           
-            
-          
-
         </form>
         <div class="buttons">
             <button class="waves-effect waves-light btn" onclick="calculatePrescription()">Calculate</button>
@@ -136,44 +123,33 @@
 <!-- CALCULATOR 2 -->
 
     <div class="opt1 opt" id="calculator-opt2">
-        <h3 class="center-align">Vertex Distance Effective Power Calculator</h3>
+        <h3 class="center-align">Radius of Curvature to Dioptric Power Calculator</h3>
         <p class="instruction">
-            <span>Note:</span>Select (sphere to cyl) or (cyl to sphere) based on your requirement.</p>
-
-        <p class="instruction"><span>Instructions:</span> It can calculate vertex distance for spherical and spherocylinderical prescription.</p>
+            Calculations happen automatically. Enter either the Radius of Curvature (in mm) or the Dioptric Power, and both values will be displayed simultaneously
+        </p>
         <hr>
         
         <form  id="presbyopicForm">
-            <label for="sphere2">Sphere:</label>
-            <input type="number" id="sphere2" step="0.25" placeholder="Enter sphere">
-    
-            <label for="cylinder2">Cylinder:</label>
-            <input type="number" id="cylinder2" step="0.25" placeholder="Enter cylinder">
-    
-            <label for="axis2">Axis:</label>
-            <input type="number" id="axis2" placeholder="Enter axis" min="1" max="180">
-    
-            <label for="vertexDistance2">Vertex Distance (mm):</label>
-            <input type="number" id="vertexDistance2" placeholder="Enter vertex distance" min="0">
-    
-            <label for="selection">Conversion:</label>
-            <select id="selection" style="display: block;width: 20%;">
-                <option value="">Select</option>
-                <option value="specsToCL">Specs to CL</option>
-                <option value="clToSpecs">CL to Specs</option>
-            </select>
+            <label for="radiusInput2">Radius of Curvature (mm):</label>
+            <input type="number" id="radiusInput2" placeholder="Enter radius of curvature" oninput="calculatePower2()">
+            
+            <label for="powerInput2">Dioptric Power (in diopters):</label>
+            <input type="number" id="powerInput2" placeholder="Enter dioptric power" oninput="calculateRadius2()">
+            
         </form>
 
-        <button class="waves-effect waves-light btn" onclick="calculatePrescription()">Calculate</button>
-
-        <h6>Result:</h6>
         <p class="result" id="result2"></p>
 
         <hr>
 
         <div class="formula">
             <p class="instruction">
-                <span>Formula:</span> DE = DL / (1 - d * DL), where D<sub>E</sub> is Effective Power, D<sub>L</sub> is Lens Power, and d is Vertex Distance.
+                <span>Formula</span>
+                <ul>
+                    <li class="instruction">Dioptric Power = 337.5 / Radius of Curvature</li>
+                    <li class="instruction">Radius of Curvature = 337.5 / Dioptric Power</li>
+                </ul>
+                
             </p>
         </div>
     </div>
@@ -182,207 +158,42 @@
 <!-- CALCULATOR 3 -->
 
     <div class="opt1 opt" id="calculator-opt3">
-        <h3 class="center-align">Simple Transposition Calculator</h3>
+        <h3 class="center-align">LARS Rule Calculator</h3>
 
         <p class="instruction">
-            <span>Instructions:</span> Enter valid numeric values for Sphere, Cylinder, and Axis (1-180), then click "Transpose" for the new transposed prescription.</p>
+            <span>Instructions:</span> Provide the rotated angle in degrees and select "Left" or "Right" indicating the rotation direction relative to the examiner's side</p>
     
         <form id="presbyopicForm">
-            <label for="sphere3">Sphere:</label>
-            <input type="number" id="sphere3" required>
-            
-            <label for="cyl3">Cylinder:</label>
-            <input type="number" id="cyl3" required>
+            <label for="sphere3">Input [Sphere]</label>
+            <input type="number" id="sphere3" placeholder="e.g., 2.00">
+
+            <label for="cylinder3">Input [Cylinder]</label>
+            <input type="number" id="cylinder3" placeholder="e.g., -1.00">
+
+            <label for="axis3">Input [Axis]</label>
+            <input type="number" id="axis3" placeholder="e.g., 180" oninput="validateAxis()">
+
+            <label for="rotationDirection3">Select Rotation Direction</label>
+            <select id="rotationDirection3" oninput="calculateLars3()" style="display: block;width: 20%;">
+                <option value="1">Left (Clockwise)</option>
+                <option value="2">Right (Anti-clockwise)</option>
+            </select>
+
     
-            <label for="axis3">Axis:</label>
-            <input type="number" id="axis3" required min="1" max="180">
-    
-            <button class="waves-effect waves-light btn" type="button" onclick="transpose()">Transpose</button>
+            <button class="waves-effect waves-light btn" type="button" onclick="calculatePrescription3()">Calculate Prescription</button>
         </form>
     
-        <h6>Transposed Prescription:</h6>
-        <p class="result" id="transposedResult3"></p>
+        <h6>Output [Final Prescription]:</h6>
+        <p class="result" id="result3"></p>
     
         <hr>
     
         <div class="formula">
             <p class="instruction">
-                <span>Steps for Simple Transposition:</span>
-        <ul class="instruction">
-            <li><strong><span>Sum:</span></strong> Add the sphere and cylinder powers of the prescription to determine the new sphere power.</li>
-            <li><strong><span>Sign:</span></strong> Change the sign of the cylinder.</li>
-            <li><strong><span>Axis:</span></strong> Change the axis by 90 degrees. If the original axis is less than or equal to 90°, add 90° to the axis; if more than 90°, subtract 90°.</li>
-        </ul>
+                LARS Rule: Left Add, Right Subtract
             </p>
         </div>
     </div>
-
-
-
-<!-- calculator 4  -->
-
-    <div class="opt1 opt" id="calculator-opt4">
-        <h3>Toric Transposition Calculator</h3>
-        <form id="presbyopicForm">
-            <label for="sphere4">Sphere:</label>
-            <input type="number" id="sphere4" required>
-            
-            <label for="cyl4">Cylinder:</label>
-            <input type="number" id="cyl4" required>
-    
-            <label for="axis4">Axis:</label>
-            <input type="number" id="axis4" required>
-    
-            <label for="baseCurve4">Base Curve:</label>
-            <input type="number" id="baseCurve4" required>
-    
-            <button type="button" class="waves-effect waves-light btn" onclick="transpose2()">Transpose</button>
-        </form>
-    
-        <h6>Results:</h6>
-        <p class="result" id="transposedResult4"></p>
-        <p class="result" id="step2Result4"></p>
-    </div>
-
-
-<!-- CALCULATOR 5 -->
-
-    <div class="opt1 opt" id="calculator-opt5">
-        <h3 class="center-align">Spherical Equivalent Calculator</h3>
-
-        <p class="instruction"><span>Instructions:</span>Enter the only Sphere and Cylinder powers below (Axis not required) to calculate the Spherical Equivalent.</p>
-        <hr>
-    
-        <form action="" id="presbyopicForm">
-            <label for="sphere5">Enter Sphere (Diopter):</label>
-            <input type="number" id="sphere5" step="0.25" placeholder="e.g., -2.00" required>
-            <span id="sphereValidation5" class="error-message"></span>
-            
-            <br>
-            
-            <label for="cylinder5">Enter Cylinder (Diopter):</label>
-            <input type="number" id="cylinder5" step="0.25" placeholder="e.g., -1.00" required>
-            <span id="cylinderValidation5" class="error-message"></span>
-            
-            <br>
-        </form>
-        
-        <button class="waves-effect waves-light btn" onclick="calculateSphericalEquivalent()">Calculate</button>
-        
-        <br>
-        
-        <form action="" id="presbyopicForm">
-            <label for="result5">Spherical Equivalent (Diopter):</label>
-            <input type="text" id="result5" readonly>
-            <span id="assessmentMessage5" style="color: red;"></span>
-        </form>
-        
-    
-        <hr>
-        
-        <div class="formula">
-            <p class="instruction"> <span>Formula for Spherical Equivalent:</span>
-                 Spherical Equivalent = Sphere + (Cylinder / 2)</p>
-        </div>
-    </div>
-
-
-<!-- CALCULATOR 6 -->
-
-    <div class="opt1 opt" id="calculator-opt6">
-        <h3 class="center-align">Working Distance Power Calculator</h3>
-        <p class="instruction">Enter your desired working distance for retinoscopy:</p>
-        <hr>
-        <form id="presbyopicForm">
-          <label for="workingDistance6">Working Distance (cm):</label>
-          <input type="number" id="workingDistance6" placeholder="Enter working distance" required oninput="validateInput6()">
-
-          <button class="waves-effect waves-light btn" onclick="calculatePower6()">Calculate</button>
-          <h6>Result</h6>
-          <p class="result" id="result6"></p>
-        </div>
-    </div>
-
-
-<!-- CALCULATOR 7 -->
-
-    <div class="opt1 opt" id="calculator-opt7">
-        <h3>Visual Acuity</h3>
-        <h5>Select 6 m value:</h5>
-
-        <form id="presbyopicForm">
-            <label for="sixM" style="font-weight: 500;
-            font-size: 15px;
-            color: black;">6 m:</label>
-            <select id="sixM" onchange="updateValues7()" style="display: block;width: 20%;">
-                <option value="6/6">6/6</option>
-                <option value="6/9">6/9</option>
-                <option value="6/12">6/12</option>
-                <option value="6/18">6/18</option>
-                <option value="6/24">6/24</option>
-                <option value="6/30">6/30</option>
-                <option value="6/36">6/36</option>
-                <option value="6/60">6/60</option>
-                <option value="5/6">5/6</option>
-                <option value="5/9">5/9</option>
-                <option value="5/12">5/12</option>
-                <option value="5/18">5/18</option>
-                <option value="5/24">5/24</option>
-                <option value="5/30">5/30</option>
-                <option value="5/36">5/36</option>
-                <option value="5/60">5/60</option>
-                <option value="4/6">4/6</option>
-                <option value="4/9">4/9</option>
-                <option value="4/12">4/12</option>
-                <option value="4/18">4/18</option>
-                <option value="4/24">4/24</option>
-                <option value="4/30">4/30</option>
-                <option value="4/36">4/36</option>
-                <option value="4/60">4/60</option>
-                <option value="3/6">3/6</option>
-                <option value="3/9">3/9</option>
-                <option value="3/12">3/12</option>
-                <option value="3/18">3/18</option>
-                <option value="3/24">3/24</option>
-                <option value="3/30">3/30</option>
-                <option value="3/36">3/36</option>
-                <option value="3/60">3/60</option>
-                <option value="2/6">2/6</option>
-                <option value="2/9">2/9</option>
-                <option value="2/12">2/12</option>
-                <option value="2/18">2/18</option>
-                <option value="2/24">2/24</option>
-                <option value="2/30">2/30</option>
-                <option value="2/36">2/36</option>
-                <option value="2/60">2/60</option>
-                <option value="1/6">1/6</option>
-                <option value="1/9">1/9</option>
-                <option value="1/12">1/12</option>
-                <option value="1/18">1/18</option>
-                <option value="1/24">1/24</option>
-                <option value="1/30">1/30</option>
-                <option value="1/36">1/36</option>
-                <option value="1/60">1/60</option>
-            </select>
-        </form>
-    
-        <h6>Result:</h6>
-        <p id="result7" style="font-size: 20px;"></p>
-    </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -391,16 +202,11 @@
     <section id="footer" class="scrollspy">
         <footer>
             <h3>Locate Us At</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, obcaecati!</p>
-                  <a href="">
-                    <box-icon class="icons" name='instagram' type='logo' ></box-icon>
-                  </a>  
+            <p>We will update soon!</p>
+            
                   <a href="">
                     <box-icon class="icons" name='gmail' type='logo' ></box-icon>
                   </a>
-                <a href="">
-                    <box-icon class="icons" name='linkedin' type='logo' ></box-icon>
-                </a>
                     
             <p>Copyrights © OPTOMETRY</p>
         </footer>

@@ -135,28 +135,47 @@ function transpose2() {
   var axis = parseFloat(document.getElementById('axis4').value);
   var baseCurve = parseFloat(document.getElementById('baseCurve4').value);
 
-  // Check if the sign of the input cylinder matches the sign of the base curve
+  // Step 1: Check if simple transposition is necessary
+  var transposedSphere = sphere;
+  var transposedCyl = cyl;
+  var transposedAxis = axis;
+
+  var step1Result;
   if ((cyl >= 0 && baseCurve >= 0) || (cyl < 0 && baseCurve < 0)) {
       // Signs match, no transposition needed
-      document.getElementById('transposedResult4').innerText = 'No transposition needed. Prescription remains unchanged.';
-
-      // Second Step: Minus between spherical and base curve power
-      var step2Result = sphere - baseCurve;
-      document.getElementById('step2Result4').innerText = 'Result of Second Step: ' + step2Result;
+      transposedSphere = sphere;
+      transposedCyl = cyl; // Keep the same sign
+      transposedAxis = axis;
+      step1Result = transposedSphere.toFixed(2) + 'DS/' + (transposedCyl >= 0 ? '+' : '-') + Math.abs(transposedCyl).toFixed(2) + 'DC x ' + transposedAxis.toFixed(0);
   } else {
       // Signs do not match, perform simple transposition
-      var transposedSphere = sphere + cyl;
-      var transposedCyl = -cyl;
-      var transposedAxis = (axis === 90) ? 180 : (axis + 90) % 180;
-
-      // Display transposed prescription with "+" sign
-      var transposedPrescription = (transposedSphere >= 0 ? '+' : '') + transposedSphere + ' Dsph / ' + (transposedCyl >= 0 ? '+' : '') + transposedCyl + ' Dcyl * ' + transposedAxis;
-      document.getElementById('transposedResult4').innerText = 'Transposed Prescription: ' + transposedPrescription;
-
-      // Second Step: Minus between spherical and base curve power
-      var step2Result = transposedSphere - baseCurve;
-      document.getElementById('step2Result4').innerText = 'Result of Second Step: ' + step2Result;
+      transposedSphere = sphere + cyl;
+      transposedCyl = -cyl; // Reverse the sign
+      transposedAxis = (axis <= 90) ? 90 + axis : axis - 90;
+      step1Result = (transposedSphere >= 0 ? '+' : '') + transposedSphere.toFixed(2) + 'DS/' + (transposedCyl >= 0 ? '+' : '-') + Math.abs(transposedCyl).toFixed(2) + 'DC x ' + transposedAxis.toFixed(0);
   }
+
+  document.getElementById('step1Result').innerText = 'Step 1: ' + step1Result;
+
+ // Step 2: Calculate the difference between base curve and spherical power
+  var step2Result = (transposedSphere - baseCurve).toFixed(2);
+  document.getElementById('step2Result').innerText = 'Step 2: ' + (step2Result >= 0 ? '+' : '') + step2Result;
+
+
+
+
+
+
+  // Step 3: Change axis to be perpendicular
+  var step3Axis = (transposedAxis <= 90) ? 90 + transposedAxis : transposedAxis - 90;
+  var step3Result = (baseCurve >= 0 ? '+' : '') + baseCurve.toFixed(2) + 'X' + step3Axis.toFixed(0);
+  document.getElementById('step3Result').innerText = 'Step 3: ' + step3Result;
+
+  // Step 4: Add Base Curve and Cylinder Power
+  var step4Result = (baseCurve + transposedCyl).toFixed(2) + ' x ' + transposedAxis.toFixed(0);
+  document.getElementById('step4Result').innerText = 'Step 4: ' + (step4Result >= 0 ? '+' : '') + step4Result;
+  // Step 5 
+  document.getElementById('step5Result').innerHTML=`Step5:<br> ${step2Result}<hr id="formula-hr">${step3Result}/${step4Result}`
 }
 
 

@@ -1,3 +1,7 @@
+*
+{
+    font-family: "Outfit", sans-serif;
+}
 /* HEDAER SECTION */
 .header
 {
@@ -39,7 +43,10 @@ nav ul a
     transition: none ;
     -webkit-transition: none;
 }
-
+.btn
+{
+    font-family: 'Outfit';
+}
 
 /* FOOTER */
 
@@ -259,7 +266,7 @@ span{
 #dropdown1
 {
     width: 15rem!important;
-    height: 32rem!important;
+    height: 18rem!important;
     border: 5px solid #faa41f;
     border-radius: 3px;
 }
@@ -280,6 +287,7 @@ span{
 .result
 {
     font-size: 16px;
+    color: #be2828;
 }
 
 /* .dropdown-content li>a:hover, .dropdown-content li.active

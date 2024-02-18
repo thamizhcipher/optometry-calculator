@@ -1,3 +1,7 @@
+*
+{
+    font-family: "Outfit", sans-serif;
+}
 /* HEDAER SECTION */
 .header
 {
@@ -40,6 +44,10 @@ nav ul a
     -webkit-transition: none;
 }
 
+.btn
+{
+    font-family: 'Outfit','sans-serif';
+}
 
 /* FOOTER */
 
@@ -50,7 +58,7 @@ nav ul a
     background-color: #EAEDF2;
     text-align: center;
 }
-
+.btn
 .icons
 {
     margin: 1.25rem;
@@ -280,6 +288,7 @@ span{
 .result
 {
     font-size: 16px;
+    color:#be2828;
 }
 
 /* .dropdown-content li>a:hover, .dropdown-content li.active
@@ -288,6 +297,19 @@ span{
     color: white;
 }
  */
+
+/* FORMULA HR */
+
+#formula-hr
+{
+    width: 20%;
+    border: none;
+    height: 1px;
+    background-color: #000; /* Default color might be different across browsers */
+    margin:0;
+}
+
+
 
 
 
