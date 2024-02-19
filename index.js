@@ -158,3 +158,15 @@ document.addEventListener('DOMContentLoaded',()=>{
 })
 
   
+// EMAIL JS
+
+function sendemail()
+{
+  var params={
+    fromName:document.getElementById('email').value,
+     message:document.getElementById('requirement').value,
+     phone:document.getElementById('mobile').value,
+     email:document.getElementById('email').value
+  }
+  return emailjs.send("service_7u9spah","template_4hvqwb9",params)
+}

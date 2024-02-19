@@ -57,43 +57,47 @@
 
         <div class="intro">
             <div class="intro-content">
-                <p class="welcome-text">Welcome to Optometry calculator hub </p>
+                <p class="welcome-text">Welcome to </p>
                 <p class="quote">Optometry calculation solutions</p>
-                <!-- <a class="getQuote waves-effect waves-light btn-large modal-trigger" href="#modal1" style="background-color: #faa41f;">Get Quote</a> -->
-                <p>Number of users: <span id="user"></span> </p>
+                <a class="getQuote waves-effect waves-light btn-large modal-trigger" href="#modal1" style="background-color: #faa41f;">Feedback</a>
+                <p class="user">Number of users: <span id="user"></span> </p>
             </div>
-            <img class="intro-img" src="img/logo-removebg-preview.png" alt="company logo" /> 
+                <img class="intro-img" src="img/logo-removebg-preview.png" alt="company logo" /> 
         </div>
     </div>
 
     <!-- MODAL FOR GET QUOTE -->
-<!-- 
+
     <div id="modal1" class="modal">
         <div class="modal-content">
           <div class="flex-container modal-responsive">
             <img src="./img/paper-plane.jpg" alt="Contact us image" class="contact-us-image">
             <div class="right-content">
-              <h4>Get a Quote</h4>
+              <h4>Provide Feedback</h4>
                 <form action="">
                     <div class="input-field">
                         <label for="email">Email</label>
                         <input id="email" type="email" required> 
                     </div>
+                    <div class="input-field">
+                        <label for="email">Mob no.</label>
+                        <input id="email" type="number" required> 
+                    </div>
                     
                     <div class="input-field">
-                        <label for="requirement">Describe your idea</label>
+                        <label for="requirement">Describe your Feedback</label>
                         <textarea name="" class="materialize-textarea" id="requirement" required ></textarea>
                     </div>
                     
                     <div class="">
-                        <button class="submit-btn waves-effect waves-light btn-small" type="submit">Submit</button>
+                        <button class="submit-btn waves-effect waves-light btn-small" onclick="sendemail()">Submit</button>
                     </div>
                 </form>
             </div>
           </div>
         </div>
     </div>
-       -->
+      
 
 
 
@@ -105,8 +109,8 @@
             <div class="col s12">
               <ul class="tabs">
                 <li class="tab col s6 l4 m4"><a class="active" href="#test1">About Us</a></li>
-                <li class="tab col s6 l4 m4"><a href="#test2">About college</a></li>
-                <li class="tab col s12 l4 m4"><a href="#test3">About department</a></li>
+                <li class="tab col s6 l4 m4"><a href="#test2">About calculators</a></li>
+                <li class="tab col s12 l4 m4"><a href="#test3">About Profile</a></li>
               </ul>
             </div>
             <div id="test1" class="tab-content col s12 ">
@@ -307,7 +311,7 @@
                   <!-- <a href="">
                     <box-icon class="icons" name='instagram' type='logo' ></box-icon>
                   </a>   -->
-                  <a href="mailto:optometrycalcuator@gmail.com">
+                  <a href="mailto:optometrycalcuatorhub@gmail.com">
                     <box-icon class="icons" name='gmail' type='logo' ></box-icon>
                   </a>
                 <!-- <a href="">

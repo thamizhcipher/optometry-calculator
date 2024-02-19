@@ -108,9 +108,7 @@ nav ul a
 .welcome-text
 {
     font-size: 30px;
-    text-align: left;
     position: relative;
-    left: 5rem;
     top:2.5rem;
     text-decoration: underline;
     text-decoration-color: burlywood;
@@ -129,6 +127,12 @@ nav ul a
     font-weight: 500;
     position: relative;
     right: 4.5rem;
+}
+
+.user
+{
+    text-align: center;
+    margin-right: 9rem;
 }
 
 
@@ -494,12 +498,23 @@ nav ul a
     .welcome-text
     {
         font-size:1.5rem ;
+        text-align: center;
+        margin-right: 2rem;
     }
     .getQuote
     {
         position: relative;
         right: 2.5rem;
     }
+    .user
+    {
+        text-align: center;
+        margin-right: 0;
+    }
+    /* .intro-img
+    {
+        margin-right: 13rem;
+    } */
 }
 @media  screen and (max-width:456px) 
 {
@@ -649,9 +664,5 @@ nav ul a
         height: 450px;
         margin:auto;
         margin-top: 8rem;
-    }
-    .pimg
-    {
-        width: 19.85rem;
-    }    
+    } 
 }
