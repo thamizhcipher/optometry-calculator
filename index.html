@@ -62,7 +62,7 @@
                 <a class="getQuote waves-effect waves-light btn-large modal-trigger" href="#modal1" style="background-color: #faa41f;">Feedback</a>
                 <p class="user">Number of users: <span id="user"></span> </p>
             </div>
-                <img class="intro-img" src="img/logo-removebg-preview.png" alt="company logo" /> 
+                <img class="intro-img" src="img/20240220_214811_0000.png" alt="company logo" /> 
         </div>
     </div>
 
@@ -79,11 +79,6 @@
                         <label for="email">Email</label>
                         <input id="email" type="email" required> 
                     </div>
-                    <div class="input-field">
-                        <label for="email">Mob no.</label>
-                        <input id="email" type="number" required> 
-                    </div>
-                    
                     <div class="input-field">
                         <label for="requirement">Describe your Feedback</label>
                         <textarea name="" class="materialize-textarea" id="requirement" required ></textarea>
@@ -334,7 +329,16 @@
 
 
     
-
+        <script type="text/javascript"
+            src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "-6qhgxSPZg-h_QTcS",
+        });
+    })();
+    </script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>

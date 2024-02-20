@@ -165,8 +165,8 @@ function sendemail()
   var params={
     fromName:document.getElementById('email').value,
      message:document.getElementById('requirement').value,
-     phone:document.getElementById('mobile').value,
      email:document.getElementById('email').value
   }
+  console.log("working");
   return emailjs.send("service_7u9spah","template_4hvqwb9",params)
 }
