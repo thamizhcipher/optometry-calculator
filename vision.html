@@ -17,6 +17,39 @@
     <!-- CSS -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="opt.css">
+    <style>
+            .tooltip {
+        position: fixed;
+        background-color: #f0f0f0;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 12px;
+        color: green;
+        display: none;
+    }
+    input[type="radio"], input[type="radio"] + label {
+            -webkit-appearance: radio !important;
+            -moz-appearance: radio !important;
+            appearance: radio !important;
+            position: static !important;
+            margin: 0 !important;
+            width: auto !important;
+            height: auto !important;
+            font-size: 1rem;
+            color: black;
+        }
+        [type="radio"]:checked,[type="radio"]:not(:checked)
+        {
+            opacity: 1;
+        }
+        label
+        {
+            color: black;
+            font-size: 1rem;
+        }
+
+    </style>
 </head>
 <body>
     
@@ -67,19 +100,22 @@
             <a onclick="changeContent('opt2')" href="#!">AC/A ratio(Gradient)</a>
         </li>
         <li>
-            <a href="#!" onclick="changeContent('opt3')">Amplitude of accommodation</a>
+            <a href="#!" onclick="changeContent('opt3')">Sheard's Criterion</a>
         </li>
         <li>
-            <a href="#!" onclick="changeContent('opt4')">Sheard's criterion</a>
+            <a href="#!" onclick="changeContent('opt4')">Percival criterion </a>
         </li>
         <li>
-            <a href="#!" onclick="changeContent('opt5')">Percival criterion </a>
+            <a href="#!" onclick="changeContent('opt5')">Bielschowsky's Head Tilt Test</a>
         </li>
         <li>
-            <a href="#!" onclick="changeContent('opt6')">hofstetter formula</a>
+            <a href="#!" onclick="changeContent('opt6')">Amplitude of accommodation</a>
         </li>
         <li>
-            <a href="#!" onclick="changeContent('opt7')">Bielschowsky’s Head Tilt Test</a>
+            <a href="#!" onclick="changeContent('opt7')">Hofstetter's formula</a>
+        </li>
+        <li>
+            <a href="#!" onclick="changeContent('opt8')">Presbyopia(amplitude of accommodation)</a>
         </li>
     </ul>
         
@@ -91,41 +127,285 @@
 
 <!-- CALCULATOR 1-->
     <div class="opt1 opt" id="calculator-opt1">
-        <h3 class="center-align">AC/A Ratio Calculator</h3>
-        <p class="instruction"> <span>Note:</span> Provide measured parameters to calculate AC/A ratio.</p>
+        <h3 class="center-align">AC/A Ratio Calculator (Heterophoria)</h3>
+        <p class="instruction"> <span>Note:</span> Provide the IPD, NFD, and phoria at near and distance to get the AC/A ratio.</p>
+        <p class="instruction"> <span>Instructions:</span> Enter the IPD, NFD, and phoria at near and distance, then click 'Calculate'.</p>
         <hr>
 
-        <form id="presbyopicForm">
-            <label for="ipd">Inter Pupillary Distance (cm): </label>
-            <input type="number" id="ipd" required step="any" min="0"><br>
-          
-            <label for="nfd">Near Fixation Distance (cm): </label>
-            <input type="number" id="nfd" required step="any" min="0"><br>
-          
-            <label for="hn">Heterophoria at Near (prism diopters, eso in + and exo in -): </label>
-            <input type="number" id="hn" required><br>
-          
-            <label for="hd">Heterophoria at Distance (prism diopters, eso in + and exo in -): </label>
-            <input type="number" id="hd" required><br>
-          
-            <button class="waves-effect waves-light btn" type="button" onclick="calculateACARatio()">Calculate</button>
+        <form id="acacalculator">
+            <label for="IPD">Inter Pupillary Distance(mm): </label>
+          <input list="IPDOptions" id="ipd" oninput="filterOptions('ipd', 'IPDOptions')" onmousemove="displayTooltip(event, 'Range:40 - 80 mm')" onmouseout="hideTooltip()">
+          <datalist id="IPDOptions"> 
+              
+  <option value="40">40</option>
+  <option value="41">41</option>
+  <option value="42">42</option>
+  <option value="43">43</option>
+  <option value="44">44</option>
+  <option value="45">45</option>
+  <option value="46">46</option>
+  <option value="47">47</option>
+  <option value="48">48</option>
+  <option value="49">49</option>
+  <option value="50">50</option>
+  <option value="51">51</option>
+  <option value="52">52</option>
+  <option value="53">53</option>
+  <option value="54">54</option>
+  <option value="55">55</option>
+  <option value="56">56</option>
+  <option value="57">57</option>
+  <option value="58">58</option>
+  <option value="59">59</option>
+  <option value="60">60</option>
+  <option value="61">61</option>
+  <option value="62">62</option>
+  <option value="63">63</option>
+  <option value="64">64</option>
+  <option value="65">65</option>
+  <option value="66">66</option>
+  <option value="67">67</option>
+  <option value="68">68</option>
+  <option value="69">69</option>
+  <option value="70">70</option>
+  <option value="71">71</option>
+  <option value="72">72</option>
+  <option value="73">73</option>
+  <option value="74">74</option>
+  <option value="75">75</option>
+  <option value="76">76</option>
+  <option value="77">77</option>
+  <option value="78">78</option>
+  <option value="79">79</option>
+  <option value="80">80</option>
 
-        </form>
-        <h5>Result:</h5>
-        <p class="result" id="result"></p>
+
+          </datalist>
+
+
+          <label for="nfd">Near fixation distance(cm): </label>
+          <input list="nfdOptions" id="nfd" oninput="filterOptions('nfd', 'nfdOptions')" onmousemove="displayTooltip(event, 'Range:5 - 100 cm')" onmouseout="hideTooltip()">
+          <datalist id="nfdOptions"> 
+               
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+  <option value="9">9</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+  <option value="13">13</option>
+  <option value="14">14</option>
+  <option value="15">15</option>
+  <option value="16">16</option>
+  <option value="17">17</option>
+  <option value="18">18</option>
+  <option value="19">19</option>
+  <option value="20">20</option>
+  <option value="21">21</option>
+  <option value="22">22</option>
+  <option value="23">23</option>
+  <option value="24">24</option>
+  <option value="25">25</option>
+  <option value="26">26</option>
+  <option value="27">27</option>
+  <option value="28">28</option>
+  <option value="29">29</option>
+  <option value="30">30</option>
+  <option value="31">31</option>
+  <option value="32">32</option>
+  <option value="33">33</option>
+  <option value="34">34</option>
+  <option value="35">35</option>
+  <option value="36">36</option>
+  <option value="37">37</option>
+  <option value="38">38</option>
+  <option value="39">39</option>
+  <option value="40">40</option>
+  <option value="41">41</option>
+  <option value="42">42</option>
+  <option value="43">43</option>
+  <option value="44">44</option>
+  <option value="45">45</option>
+  <option value="46">46</option>
+  <option value="47">47</option>
+  <option value="48">48</option>
+  <option value="49">49</option>
+  <option value="50">50</option>
+  <option value="51">51</option>
+  <option value="52">52</option>
+  <option value="53">53</option>
+  <option value="54">54</option>
+  <option value="55">55</option>
+  <option value="56">56</option>
+  <option value="57">57</option>
+  <option value="58">58</option>
+  <option value="59">59</option>
+  <option value="60">60</option>
+  <option value="61">61</option>
+  <option value="62">62</option>
+  <option value="63">63</option>
+  <option value="64">64</option>
+  <option value="65">65</option>
+  <option value="66">66</option>
+  <option value="67">67</option>
+  <option value="68">68</option>
+  <option value="69">69</option>
+  <option value="70">70</option>
+  <option value="71">71</option>
+  <option value="72">72</option>
+  <option value="73">73</option>
+  <option value="74">74</option>
+  <option value="75">75</option>
+  <option value="76">76</option>
+  <option value="77">77</option>
+  <option value="78">78</option>
+  <option value="79">79</option>
+  <option value="80">80</option>
+  <option value="81">81</option>
+  <option value="82">82</option>
+  <option value="83">83</option>
+  <option value="84">84</option>
+  <option value="85">85</option>
+  <option value="86">86</option>
+  <option value="87">87</option>
+  <option value="88">88</option>
+  <option value="89">89</option>
+  <option value="90">90</option>
+  <option value="91">91</option>
+  <option value="92">92</option>
+  <option value="93">93</option>
+  <option value="94">94</option>
+  <option value="95">95</option>
+  <option value="96">96</option>
+  <option value="97">97</option>
+  <option value="98">98</option>
+  <option value="99">99</option>
+  <option value="100">100</option>
+
+
+
+          </datalist>
+
+
+<label for="hn">Heterophoria at Near(PD)(Eso in + & Exo in -): </label>
+          <input list="hnOptions" id="hn" oninput="filterOptions('hn', 'hnOptions')" onmousemove="displayTooltip(event, 'Range:1 - 20 PD')" onmouseout="hideTooltip()">
+          <datalist id="hnOptions"> 
+               
+  <option value="-20">-20</option>
+<option value="-19">-19</option>
+<option value="-18">-18</option>
+<option value="-17">-17</option>
+<option value="-16">-16</option>
+<option value="-15">-15</option>
+<option value="-14">-14</option>
+<option value="-13">-13</option>
+<option value="-12">-12</option>
+<option value="-11">-11</option>
+<option value="-10">-10</option>
+<option value="-9">-9</option>
+<option value="-8">-8</option>
+<option value="-7">-7</option>
+<option value="-6">-6</option>
+<option value="-5">-5</option>
+<option value="-4">-4</option>
+<option value="-3">-3</option>
+<option value="-2">-2</option>
+<option value="-1">-1</option>
+<option value="0">0</option>
+<option value="+1">+1</option>
+<option value="+2">+2</option>
+<option value="+3">+3</option>
+<option value="+4">+4</option>
+<option value="+5">+5</option>
+<option value="+6">+6</option>
+<option value="+7">+7</option>
+<option value="+8">+8</option>
+<option value="+9">+9</option>
+<option value="+10">+10</option>
+<option value="+11">+11</option>
+<option value="+12">+12</option>
+<option value="+13">+13</option>
+<option value="+14">+14</option>
+<option value="+15">+15</option>
+<option value="+16">+16</option>
+<option value="+17">+17</option>
+<option value="+18">+18</option>
+<option value="+19">+19</option>
+<option value="+20">+20</option>
+
+
+          </datalist>
+
+ <label for="hd">Heterophoria at Distance (PD)(Eso in + and Exo in -): </label>
+          <input list="hdOptions" id="hd" oninput="filterOptions('hd', 'hdOptions')" onmousemove="displayTooltip(event, 'Range:1 - 20 PD')" onmouseout="hideTooltip()">
+          <datalist id="hdOptions"> 
+               
+  <option value="-20">-20</option>
+<option value="-19">-19</option>
+<option value="-18">-18</option>
+<option value="-17">-17</option>
+<option value="-16">-16</option>
+<option value="-15">-15</option>
+<option value="-14">-14</option>
+<option value="-13">-13</option>
+<option value="-12">-12</option>
+<option value="-11">-11</option>
+<option value="-10">-10</option>
+<option value="-9">-9</option>
+<option value="-8">-8</option>
+<option value="-7">-7</option>
+<option value="-6">-6</option>
+<option value="-5">-5</option>
+<option value="-4">-4</option>
+<option value="-3">-3</option>
+<option value="-2">-2</option>
+<option value="-1">-1</option>
+<option value="0">0</option>
+<option value="+1">+1</option>
+<option value="+2">+2</option>
+<option value="+3">+3</option>
+<option value="+4">+4</option>
+<option value="+5">+5</option>
+<option value="+6">+6</option>
+<option value="+7">+7</option>
+<option value="+8">+8</option>
+<option value="+9">+9</option>
+<option value="+10">+10</option>
+<option value="+11">+11</option>
+<option value="+12">+12</option>
+<option value="+13">+13</option>
+<option value="+14">+14</option>
+<option value="+15">+15</option>
+<option value="+16">+16</option>
+<option value="+17">+17</option>
+<option value="+18">+18</option>
+<option value="+19">+19</option>
+<option value="+20">+20</option>
+
+
+          </datalist>
+
+<button type="button" class="waves-effect waves-light btn" onclick="calculateACARatio()">Calculate</button>
+</form>
+
+<p id="result1"></p>
+
         <HR></HR>
         <div class="formula">
-            <p class="instruction"> <span >Formula</span> 
-                <img class="formula-img" style="width: 250px;" src="img/vision-formula.png" alt="formula">
-                <li class="instruction">Esophoria is plus, Exophoria is minus.</li>
-                <li class="instruction">Where IPD is inter pupillary distance in centimetres.</li>
-                <li class="instruction">NFD is Near fixation distance in metres.</li>
-                <li class="instruction">Hn is Heterophoria at Near in prism diopters.</li>
-                <li class="instruction">Hd is Heterophoria at distance in prism diopters.</li>
-            </p>
+            <span>Formula:</span>
+            <p>AC/A Ratio = IPD + (Hn - Hd) x NFD</p>  
+                <ul>
+                <li><p> IPD - Inter Pupillary Distance (mm) </p></li> 
+                <li><p> Hn  - Heterophoria at Near (PD)</p></li>
+                <li><p> Hd  - Heterophoria at Distance (PD)</p></li>
+                <li><p> NFD - Near Fixation Distance (m)</p></li>
+                </ul>
         </div>
     </div>
 
+    <div id="tooltip1" class="tooltip"></div>
 
 
 <!-- CALCULATOR 2 -->
@@ -133,55 +413,219 @@
     <div class="opt1 opt" id="calculator-opt2">
         <h3 class="center-align">AC/A Ratio Calculator(Gradient method)</h3>
         <p class="instruction">
-            <span>Note:</span>Select (sphere to cyl) or (cyl to sphere) based on your requirement.</p>
+            <span>Note:</span>Give the deviations with and without the lens, and get the AC/A ratio</p>
 
-        <p class="instruction"><span>Instructions:</span> Enter the baseline deviation (without lenses), deviation with lenses, and lens power below.</p>
+        <p class="instruction"><span>Instructions:</span>Select the deviations in prism diopters from the dropdown, choose the lens used, then click 'Calculate'</p>
         <hr>
         
         <form  id="presbyopicForm">
-            <label for="deviationWithoutLenses">Original Deviation(without lenses)(eso + exo -):</label>
-            <input type="number" id="deviationWithoutLenses" placeholder="Enter baseline deviation" required>
+            <label for="deviationWithoutLenses">Original Deviation without lenses(PD):</label>
+        <select id="deviationWithoutLenses" style="width: 20%;display: block;" >
+            <!-- Options for Original Deviation (without lenses) -->
+            <!-- Options for negative numbers -->
+                 
+    <option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+<option value="32">32</option>
+<option value="33">33</option>
+<option value="34">34</option>
+<option value="35">35</option>
+<option value="36">36</option>
+<option value="37">37</option>
+<option value="38">38</option>
+<option value="39">39</option>
+<option value="40">40</option>
 
-            <label for="deviationWithLenses">Deviation with Lenses(eso + exo -):</label>
-            <input type="number" id="deviationWithLenses" placeholder="Enter deviation with lenses" required>
+        </select>
 
-            <label for="lensPower">Lens Power:</label>
-            <input type="number" id="lensPower" placeholder="Enter lens power" required>
-        </form>
+        <label for="deviationWithLenses">Deviation with Lenses(PD):</label>
+        <select id="deviationWithLenses" style="width: 20%;display: block;">
+            <!-- Options for Deviation with Lenses -->
+            <!-- Options for negative numbers -->
+                <option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3</option>
+<option value="4">4</option>
+<option value="5">5</option>
+<option value="6">6</option>
+<option value="7">7</option>
+<option value="8">8</option>
+<option value="9">9</option>
+<option value="10">10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+<option value="21">21</option>
+<option value="22">22</option>
+<option value="23">23</option>
+<option value="24">24</option>
+<option value="25">25</option>
+<option value="26">26</option>
+<option value="27">27</option>
+<option value="28">28</option>
+<option value="29">29</option>
+<option value="30">30</option>
+<option value="31">31</option>
+<option value="32">32</option>
+<option value="33">33</option>
+<option value="34">34</option>
+<option value="35">35</option>
+<option value="36">36</option>
+<option value="37">37</option>
+<option value="38">38</option>
+<option value="39">39</option>
+<option value="40">40</option>
+
+        </select>
+
+        <label for="lensPower">Lens Power(D):</label>
+        <select id="lensPower" style="width: 20%;display: block;">
+            <option value="-3.00">-3.00 DS</option> 
+            <option value="-2.00">-2.00 DS</option>
+            <option value="-1.00">-1.00 DS</option>
+            <option value="+1.00">+1.00 DS</option>
+            <option value="+2.00">+2.00 DS</option>
+            <option value="+3.00">+3.00 DS</option>
+        </select>
 
         <button class="waves-effect waves-light btn" onclick="calculateACARatio2()">Calculate</button>
 
         <h6>Result:</h6>
-        <p class="result" id="acARatioResult"></p>
-
+        <p id="acARatioResult2"></p>
+        <p id="acConvergence2"></p>
         <hr>
+        </form>
 
         <div class="formula">
             <p class="instruction">
-                <span>Formula:</span> AC/A Ratio = (DL - DO) / p <br>
-                <li class="instruction">Where DL is the Deviation with lenses, </li>
-                <li class="instruction">DO is the Original Deviation without lenses,</li>
-                <li class="instruction">p is the power of the lenses used to relax accommodation</li>
-                <li class="instruction">The Gradient method is inaccurate because it does not take into account the patient's IPD</li>
-            
+                <span>Formula:</span>  <br>
+                <p>AC/A Ratio = (DL - DO) / p</p>
+            <ul>
+                <li>DL - the Deviation with lens prism(D)</li>
+                <li>DO - Original Deviation without lens Prism(D)</li>
+                <li>p - Power of the lens used (D)</li>
+            </ul>
         </div>
-    </div>
+
+    </div>      
+
+       
+
+        
+ 
 
 
 <!-- CALCULATOR 3 -->
 
     <div class="opt1 opt" id="calculator-opt3">
-        <h3 class="center-align">Amplitude of Accommodation Calculator</h3>
+        <h3 class="center-align">Sheard's Criterion</h3>
 
         <p class="instruction">
-            <span>Instructions:</span>  Enter either the Near Point of Accommodation in centimeters or the Amplitude of Accommodation in diopters to get the calculation for both. <br>Note: Use practical values .</p>
+            <span>Note:</span>Provide the Phoria and Compensating Fusional Vergence to calculate the prism <br>
+            <span>Instructions:</span> Select the phoria and Compensating Fusional Vergence from the dropdown menus, then click 'Calculate'.
+        </p>
     
         <form id="presbyopicForm">
-            <label for="nearPoint">Enter Near Point of Accommodation (in cm): </label>
-            <input type="number" id="nearPoint" placeholder="Enter distance in cm" oninput="calculateAmplitude()">
+            <label for="phoria">Phoria(PD):</label>
+<select id="phoria" style="width: 20%;display: block;">
+    <option value="0">0</option>
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+</select>
 
-            <label for="amplitude">Amplitude of Accommodation (in diopters): </label>
-            <input type="number" id="amplitude" placeholder="Enter amplitude in diopters" oninput="calculateNearPoint()">
+<label for="compensatingVergence">Compensating Fusional Vergence(PD):</label>
+<select id="compensatingVergence" style="width: 20%;display: block;">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+     <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
+</select>
+
+<button onclick="calculatePrism3()" class="waves-effect waves-light btn">Calculate</button>
+
+<p id="output3"></p>
         </form>
     
 
@@ -189,10 +633,15 @@
         <hr>
     
         <div class="formula">
-            <p class="instruction">
-                <span>Formula:</span>
-                Amplitude of Accommodation (in diopters) = 100 / Near Point of Accommodation (in cm)    
-            </p>
+            <span class="">Formula:</span> <br>
+            <ul>
+                <li><strong>P = 2/3(p) - 1/3 (CFV)</strong></li>
+                <li><strong>P - </strong>Prism(PD)</li>
+                <li><strong>p - </strong>phoria(PD)</li>
+                <li><strong>CFV - </strong>Compensating Fusional Vergence(PD)</li>
+            </ul>
+            
+
         </div>
     </div>
 
@@ -201,21 +650,51 @@
 <!-- calculator 4  -->
 
     <div class="opt1 opt" id="calculator-opt4">
-        <h3 class="center-align">Prism Calculator</h3>
+        <h3 class="center-align">Percival Criterion Calculator</h3>
+        <p class="instruction">
+            <span>Note:</span>Provide the Greater lateral limit and Lesser lateral limit in prism diopters to calculate the prism.<br>
+            <span>Instructions:</span> Select the Greater lateral limit and Lesser lateral limit from the drop-down menus, then click 'Calculate'..
+        </p>
         <form id="presbyopicForm">
-            <label for="phoria">Input Phoria Prism Diopters:</label>
-            <input type="number" id="phoria" placeholder="Enter phoria prism" oninput="calculatePrism()">
-        
-            <label for="compensatingVergence">Input Compensating Fusional Vergence Prism Diopters:</label>
-            <input type="number" id="compensatingVergence" placeholder="Enter compensating vergence prism" oninput="calculatePrism()">
+            <label for="inputG">Greater Lateral Limit (PD):</label>
+         <select id="inputG" style="width: 20%;display: block;">
+        <!-- Options from 1 to 30 -->
+        <script>
+            for (var i = 1; i <= 40; i++) {
+                document.write("<option value='" + i + "'>" + i + "</option>");
+            }
+        </script>
+    </select>
+
+    <label for="inputL">Lesser Lateral Limit (PD):</label>
+    <select id="inputL" style="width: 20%;display: block;">
+        <!-- Options from 1 to 30 -->
+        <script>
+            for (var i = 1; i <= 40; i++) {
+                document.write("<option value='" + i + "'>" + i + "</option>");
+            }
+        </script>
+    </select>
+
+    <!-- Button to trigger calculation -->
+    <button onclick="calculatePrism4()" class="waves-effect waves-light btn">Calculate</button>
+
+    <!-- Display the result -->
+    <p id="outputMessage4">Prism: <span id="result4">0.00</span>(PD)</p>
+<hr>
+    <!-- Formula Used section -->
+   
+
         </form>
-    
-        <h6 style="font-weight: bold;">Results:</h6>
-        <p class="result">Output Prism: <span id="output"></span> prism</p>
         <div class="formula">
-            <p class="instruction">
-                <span>Formula:</span>
-                Prism = 2/3 *demand -1/3* reserve  
+            <p class="">
+                <span>Formula:</span> br
+                <ul>
+                    <strong>P = (1/3) * G - (2/3) * L</strong>  
+                    <li>P = Prism to be prescribed</li>
+                    <li>G = Greater of the two lateral limits(PD) (base-in or base-out)</li>
+                    <li>L = Lesser of the two lateral limits(PD) (base-in or base-out)</li>
+                </ul>  
             </p>
         </div>
     </div>
@@ -224,64 +703,243 @@
 <!-- CALCULATOR 5 -->
 
     <div class="opt1 opt" id="calculator-opt5">
-        <h3 class="center-align">Percival Criterion Calculator</h3>
-
+        <h3 class="center-align">Bielschowsky's Head Tilt Test</h3>
+        <p class="instruction">
+            <span>Note:</span>Provide the hypertropia positions to identify the isolated muscle palsy <br>
+            <span>Instructions:</span> Simply select the hypertropia in primary position, gaze, and head tilt, then click 'Submit Test'
+        </p>
         
     
         <form action="" id="presbyopicForm">
-            <label for="inputG">Enter greater lateral limit (G) prism diopters:</label>
-            <input type="number" id="inputG" step="0.1" oninput="calculatePrism5()">
+            <label for="primaryPosition">Step 1: Determine which eye is hypertropic in primary position.</label>
+
+            <select id="primaryPosition" style="width: 20%;display: block;">
         
-            <label for="inputL">Enter lesser lateral limit (L) prism diopters:</label>
-            <input type="number" id="inputL" step="0.1" oninput="calculatePrism5()">
+                <option value="right">Right eye hypertropic</option>
+        
+                <option value="left">Left eye hypertropic</option>
+        
+            </select>
+        
+        
+        
+            <label for="gazeDirection">Step 2: Determine whether the hypertropia increases on right or left gaze.</label>
+        
+            <select id="gazeDirection" style="width: 20%;display: block;">
+        
+                <option value="right">Increases on right gaze</option>
+        
+                <option value="left">Increases on left gaze</option>
+        
+            </select>
+        
+        
+        
+            <label for="headTilt">Step 3: Determine whether the hypertropia increases on right or left head tilt.</label>
+        
+            <select id="headTilt" style="width: 20%;display: block;">
+        
+                <option value="right">Increases on right head tilt</option>
+        
+                <option value="left">Increases on left head tilt</option>
+        
+            </select>
+        
+        
+        
+            <button onclick="submitTest5()" style="margin-top: 1rem;" class="waves-effect waves-light btn">Submit Test</button>
+        
+        
+        
+            <div id="result5"></div>
+        
         </form>
         
-        <p >Result: <span class="result" id="result5">0.00</span> prism diopters</p>
         <hr>
-        
-        <div class="formula">
-            <p class="instruction"> <span>Formula:</span>
-                p=⅓ G - ⅔ L
-                <li class="instruction">where</li>
-                <li class="instruction">P = prism to be prescribed</li>
-                <li class="instruction">G = greater of the two lateral limits (base-in or base-out)</li>
-                <li class="instruction">L = lesser of the two lateral limits (base-in or base-out)</li>
-            </p>
-        </div>
+    <h6 style="font-weight: bold;">Park's 3 Stpes</h6>
+    <ul>
+        <li><strong>Note:</strong>By noting how the hypertropia changes with eye movements and head tilts, you can figure out which eye muscles might be causing the misalignment by the following steps.</li>
+        <li><strong>Stpe 1:</strong> which eye is hypertropic in primary position?</li>
+        <li><strong>Step 2:</strong> Whether the hypertropia increases on right or left gaze?</li>
+        <li><strong>Step 3:</strong> Whether the hypertropia increases on right or left head tilt?</li>
+<h6 style="font-weight: bold;">Hints</h6>
+<li>If all 3 steps are right <strong> - Left Inferior oblique</strong></li>
+<li>If all 3 steps are left <strong>  - Right Inferior oblique</strong></li>
+
+<li>If 1st step only is right <strong>- Left Superior Rectus</strong></li>
+<li>If 1st step only is left  <strong> - Right Superior Rectus</strong></li>
+
+<li>If 2nd step only is right <strong>- Left Superior Oblique</strong></li>
+<li>If 2nd step only is left  <strong> - Right Superior Oblique</strong></li>
+
+<li>If 3rd step only is right <strong>- Left Inferior Rectus</strong></li>
+<li>If 3rd step only is left  <strong> - Right Inferior Rectus</strong></li>
+
+    </ul>
+
+       
     </div>
 
 
 <!-- CALCULATOR 6 -->
 
     <div class="opt1 opt" id="calculator-opt6">
-        <h3 class="center-align">Hofstetter Calculator</h3>
-        <p class="instruction">Enter age to calculate minimum, average, and maximum amplitude of accommodation.</p>
+        <h3 class="center-align">Amplitude of accommodation</h3>
+            <p class="instruction">
+                <span>Note:</span> You can get Near Point of Accommodation ↔ Amplitude of Accommodation <br>
+                <span>Instructions:</span> Provide either the Near Point of Accommodation or the Amplitude of Accommodation, then click the 'Calculate' button.  <br>
+                Make sure to erase the two inputs before the next calculation.
+            </p>    
         <hr>
         
         <form id="presbyopicForm">
-            <label for="ageMinimum">Enter Age for Minimum Amplitude:</label>
-            <input type="number" id="ageMinimum" oninput="calculateAmplitude('minimum')">
-            <label for="ageAverage">Enter Age for Average Amplitude:</label>
-            <input type="number" id="ageAverage" oninput="calculateAmplitude('average')">
-            <label for="ageMaximum">Enter Age for Maximum Amplitude:</label>
-            <input type="number" id="ageMaximum" oninput="calculateAmplitude('maximum')">
-       
-          <h6>Result</h6>
-          <p class="result" id="resultMinimum"></p>
-          <p class="result" id="resultAverage"></p>
-          <p class="result" id="resultMaximum"></p>
+            <label for="NearPointInput">Near Point of Accommodation(cm):</label>
+<input list="NearPointOptions" id="NearPointInput" oninput="filterOptions('NearPointInput', 'NearPointOptions')" onmousemove="displayTooltip(event, 'Range: 5 - 100')" onmouseout="hideTooltip()">
+<datalist id="NearPointOptions"> 
+        <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
+    <option value="31">31</option>
+    <option value="32">32</option>
+    <option value="33">33</option>
+    <option value="34">34</option>
+    <option value="35">35</option>
+    <option value="36">36</option>
+    <option value="37">37</option>
+    <option value="38">38</option>
+    <option value="39">39</option>
+    <option value="40">40</option>
+    <option value="41">41</option>
+    <option value="42">42</option>
+    <option value="43">43</option>
+    <option value="44">44</option>
+    <option value="45">45</option>
+    <option value="46">46</option>
+    <option value="47">47</option>
+    <option value="48">48</option>
+    <option value="49">49</option>
+    <option value="50">50</option>
+    <option value="51">51</option>
+    <option value="52">52</option>
+    <option value="53">53</option>
+    <option value="54">54</option>
+    <option value="55">55</option>
+    <option value="56">56</option>
+    <option value="57">57</option>
+    <option value="58">58</option>
+    <option value="59">59</option>
+    <option value="60">60</option>
+    <option value="61">61</option>
+    <option value="62">62</option>
+    <option value="63">63</option>
+    <option value="64">64</option>
+    <option value="65">65</option>
+    <option value="66">66</option>
+    <option value="67">67</option>
+    <option value="68">68</option>
+    <option value="69">69</option>
+    <option value="70">70</option>
+    <option value="71">71</option>
+    <option value="72">72</option>
+    <option value="73">73</option>
+    <option value="74">74</option>
+    <option value="75">75</option>
+    <option value="76">76</option>
+    <option value="77">77</option>
+    <option value="78">78</option>
+    <option value="79">79</option>
+    <option value="80">80</option>
+    <option value="81">81</option>
+    <option value="82">82</option>
+    <option value="83">83</option>
+    <option value="84">84</option>
+    <option value="85">85</option>
+    <option value="86">86</option>
+    <option value="87">87</option>
+    <option value="88">88</option>
+    <option value="89">89</option>
+    <option value="90">90</option>
+    <option value="91">91</option>
+    <option value="92">92</option>
+    <option value="93">93</option>
+    <option value="94">94</option>
+    <option value="95">95</option>
+    <option value="96">96</option>
+    <option value="97">97</option>
+    <option value="98">98</option>
+    <option value="99">99</option>
+    <option value="100">100</option>
+ 
+</datalist>
+
+<label for="AmplitudeInput">Amplitude of Accommodation (D):</label>
+<input list="AmplitudeOptions" id="AmplitudeInput" oninput="filterOptions('AmplitudeInput', 'AmplitudeOptions')" onmousemove="displayTooltip(event, 'Range: 1 - 20')" onmouseout="hideTooltip()">
+<datalist id="AmplitudeOptions"> 
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+ 
+</datalist>
+
+<button onclick="calculate6()" class="waves-effect waves-light btn">Calculate</button>
+
+<p id="message6"></p>
+
+<hr>
+
         </form>
         
 
         <div class="formula">
-            <p class="instruction"> <span>Formula:</span>
-                <li class="instruction">Minimum Amplitude: 15 - age/4</li>
-                <li class="instruction">Average Amplitude: 18.5 - age/3 </li>
-                <li class="instruction">Maximum Amplitude: 25 - age/5</li>
-                <li class="instruction">L = lesser of the two lateral limits (base-in or base-out)</li>
+            <p class="instruction"> <span>How to calculate ?</span>
+
+            <ul>
+                <li><strong>Amplitude of Accommodation(D):</strong> 100 / Near Point of Accommodation (cm)</li>
+                <li><strong>Near Point of Accommodation(cm):</strong> 100 / Amplitude of Accommodation (D)</li>
+            </ul>
             </p>
         </div>
-
+        <div id="tooltip6" class="tooltip"></div>
 
     </div>
 
@@ -289,37 +947,367 @@
 <!-- CALCULATOR 7 -->
 
     <div class="opt1 opt" id="calculator-opt7">
-        <h3>Bielschowsky's Head Tilt Tes</h3>
+        <h3 style="text-align: center;">Hoffstetter's Amplitude Calculator</h3>
 
+        <p class="instruction">
+            <span>Note:</span><p class="instruction">
+                <span>Note:</span>Provide the Phoria and Compensating Fusional Vergence to calculate the prism <br>
+                <span>Instructions:</span> Enter the age and click 'Calculate'
+            </p> <br>
+        </p>
         <form id="presbyopicForm">
-            <label for="primaryPosition">Step 1: Determine which eye is hypertropic in primary position.</label>
-            <select id="primaryPosition" style="display: block;width: 20%;">
-                <option value="right">Right eye hypertropic</option>
-                <option value="left">Left eye hypertropic</option>
-            </select>
+            <label for="age">Age: </label>
+    <input list="ageOptions" id="age" oninput="filterOptions('age', 'ageOptions')" onmousemove="displayTooltip(event, 'Range: 1 - 63')" onmouseout="hideTooltip()">
+    <datalist id="ageOptions">
+                        <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
+    <option value="31">31</option>
+    <option value="32">32</option>
+    <option value="33">33</option>
+    <option value="34">34</option>
+    <option value="35">35</option>
+    <option value="36">36</option>
+    <option value="37">37</option>
+    <option value="38">38</option>
+    <option value="39">39</option>
+    <option value="40">40</option>
+    <option value="41">41</option>
+    <option value="42">42</option>
+    <option value="43">43</option>
+    <option value="44">44</option>
+    <option value="45">45</option>
+    <option value="46">46</option>
+    <option value="47">47</option>
+    <option value="48">48</option>
+    <option value="49">49</option>
+    <option value="50">50</option>
+    <option value="51">51</option>
+    <option value="52">52</option>
+    <option value="53">53</option>
+    <option value="54">54</option>
+    <option value="55">55</option>
+    <option value="56">56</option>
+    <option value="57">57</option>
+    <option value="58">58</option>
+    <option value="59">59</option>
+    <option value="60">60</option>
+    <option value="61">61</option>
+    <option value="62">62</option>
+    <option value="63">63</option>
 
-            <label for="gazeDirection">Step 2: Determine whether the hypertropia increases on right or left gaze.</label>
-            <select id="gazeDirection" style="display: block;width: 20%;">
-                <option value="right">Increases on right gaze</option>
-                <option value="left">Increases on left gaze</option>
-            </select>
+    </datalist>
 
-            <label for="headTilt">Step 3: Determine whether the hypertropia increases on right or left head tilt.</label>
-            <select id="headTilt" style="display: block;width: 20%;">
-                <option value="right">Increases on right head tilt</option>
-                <option value="left">Increases on left head tilt</option>
-            </select>
+    <button class="waves-effect waves-light btn" onclick="calculateAmplitudes7()">Calculate</button>
 
-            <button class="waves-effect waves-light btn" onclick="submitTest()">Calculate</button>
+
+<!-- Results -->
+<h6>Amplitude of Accommodation</h6>
+<div>
+    <output id="resultMinimum7"></output>
+</div>
+<div>
+    <output id="resultMean7"></output>
+</div>
+<div>
+    <output id="resultMaximum7"></output>
+</div>
+
         </form>
+        <div id="tooltip7" class="tooltip"></div>
     
-        <h6>Result:</h6>
-        <p id="result7" class="result"></p>
+        <div class="formula">
+            <span class="instruction">Hoffstetter's Formula</span>
+            <ul>
+                <li><strong>Minimum:</strong>   15  - (0.25 x Age)</li>
+                <li><strong>Average:</strong> 18.5  - (0.30 x Age)</li>
+                <li><strong>Maximum:</strong>   25  - (0.40 x Age)</li>
+            </ul>
+        
+        </div>
+    </div>
+</div>
+
+<!-- CALCULATOR 8 -->
+
+<div class="opt1 opt" id="calculator-opt8">
+    <h3 style="text-align: center;">Presbyopia Addition Calculator</h3>
+
+    <p class="instruction">
+        <span>Note:</span><p class="instruction">
+            <span>Note:</span> Provide the Reading Distance and Near Point of Accommodation to calculate the Near ADD<br>
+            <span>Instructions:</span> Enter the Reading Distance and Near Point of Accommodation, then click 'Calculate'
+            <p><span>Tip:</span> If there's a Distance correction, simply add the Near ADD with the Sphere power to get the Near Prescription.</p>
+    </p>
+    <form id="presbyopicForm">
+        <label for="readingDistance">Reading Distance (cm):</label>
+        <input list="readingDistanceOptions" id="readingDistance" oninput="filterOptions('readingDistance', 'readingDistanceOptions')" onmousemove="displayTooltip('5 - 100(cm)', event)" onmouseout="hideTooltip()">
+        <datalist id="readingDistanceOptions">
+            <!-- Options for reading distance values 5 to 100 -->
+            <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
+    <option value="31">31</option>
+    <option value="32">32</option>
+    <option value="33">33</option>
+    <option value="34">34</option>
+    <option value="35">35</option>
+    <option value="36">36</option>
+    <option value="37">37</option>
+    <option value="38">38</option>
+    <option value="39">39</option>
+    <option value="40">40</option>
+    <option value="41">41</option>
+    <option value="42">42</option>
+    <option value="43">43</option>
+    <option value="44">44</option>
+    <option value="45">45</option>
+    <option value="46">46</option>
+    <option value="47">47</option>
+    <option value="48">48</option>
+    <option value="49">49</option>
+    <option value="50">50</option>
+    <option value="51">51</option>
+    <option value="52">52</option>
+    <option value="53">53</option>
+    <option value="54">54</option>
+    <option value="55">55</option>
+    <option value="56">56</option>
+    <option value="57">57</option>
+    <option value="58">58</option>
+    <option value="59">59</option>
+    <option value="60">60</option>
+    <option value="61">61</option>
+    <option value="62">62</option>
+    <option value="63">63</option>
+    <option value="64">64</option>
+    <option value="65">65</option>
+    <option value="66">66</option>
+    <option value="67">67</option>
+    <option value="68">68</option>
+    <option value="69">69</option>
+    <option value="70">70</option>
+    <option value="71">71</option>
+    <option value="72">72</option>
+    <option value="73">73</option>
+    <option value="74">74</option>
+    <option value="75">75</option>
+    <option value="76">76</option>
+    <option value="77">77</option>
+    <option value="78">78</option>
+    <option value="79">79</option>
+    <option value="80">80</option>
+    <option value="81">81</option>
+    <option value="82">82</option>
+    <option value="83">83</option>
+    <option value="84">84</option>
+    <option value="85">85</option>
+    <option value="86">86</option>
+    <option value="87">87</option>
+    <option value="88">88</option>
+    <option value="89">89</option>
+    <option value="90">90</option>
+    <option value="91">91</option>
+    <option value="92">92</option>
+    <option value="93">93</option>
+    <option value="94">94</option>
+    <option value="95">95</option>
+    <option value="96">96</option>
+    <option value="97">97</option>
+    <option value="98">98</option>
+    <option value="99">99</option>
+    <option value="100">100</option>
+
+            <!-- Add options for other reading distance values -->
+            <option value="100">100</option>
+        </datalist>
+
+        <label for="nearPoint">Near Point of Accommodation (cm):</label>
+        <input list="nearPointOptions" id="nearPoint" oninput="filterOptions('nearPoint', 'nearPointOptions')" onmousemove="displayTooltip('5 - 100(cm)', event)" onmouseout="hideTooltip()">
+        <datalist id="nearPointOptions">
+            <!-- Options for near point values 5 to 100 -->
+            <option value="5">5</option>
+    <option value="6">6</option>
+    <option value="7">7</option>
+    <option value="8">8</option>
+    <option value="9">9</option>
+    <option value="10">10</option>
+    <option value="11">11</option>
+    <option value="12">12</option>
+    <option value="13">13</option>
+    <option value="14">14</option>
+    <option value="15">15</option>
+    <option value="16">16</option>
+    <option value="17">17</option>
+    <option value="18">18</option>
+    <option value="19">19</option>
+    <option value="20">20</option>
+    <option value="21">21</option>
+    <option value="22">22</option>
+    <option value="23">23</option>
+    <option value="24">24</option>
+    <option value="25">25</option>
+    <option value="26">26</option>
+    <option value="27">27</option>
+    <option value="28">28</option>
+    <option value="29">29</option>
+    <option value="30">30</option>
+    <option value="31">31</option>
+    <option value="32">32</option>
+    <option value="33">33</option>
+    <option value="34">34</option>
+    <option value="35">35</option>
+    <option value="36">36</option>
+    <option value="37">37</option>
+    <option value="38">38</option>
+    <option value="39">39</option>
+    <option value="40">40</option>
+    <option value="41">41</option>
+    <option value="42">42</option>
+    <option value="43">43</option>
+    <option value="44">44</option>
+    <option value="45">45</option>
+    <option value="46">46</option>
+    <option value="47">47</option>
+    <option value="48">48</option>
+    <option value="49">49</option>
+    <option value="50">50</option>
+    <option value="51">51</option>
+    <option value="52">52</option>
+    <option value="53">53</option>
+    <option value="54">54</option>
+    <option value="55">55</option>
+    <option value="56">56</option>
+    <option value="57">57</option>
+    <option value="58">58</option>
+    <option value="59">59</option>
+    <option value="60">60</option>
+    <option value="61">61</option>
+    <option value="62">62</option>
+    <option value="63">63</option>
+    <option value="64">64</option>
+    <option value="65">65</option>
+    <option value="66">66</option>
+    <option value="67">67</option>
+    <option value="68">68</option>
+    <option value="69">69</option>
+    <option value="70">70</option>
+    <option value="71">71</option>
+    <option value="72">72</option>
+    <option value="73">73</option>
+    <option value="74">74</option>
+    <option value="75">75</option>
+    <option value="76">76</option>
+    <option value="77">77</option>
+    <option value="78">78</option>
+    <option value="79">79</option>
+    <option value="80">80</option>
+    <option value="81">81</option>
+    <option value="82">82</option>
+    <option value="83">83</option>
+    <option value="84">84</option>
+    <option value="85">85</option>
+    <option value="86">86</option>
+    <option value="87">87</option>
+    <option value="88">88</option>
+    <option value="89">89</option>
+    <option value="90">90</option>
+    <option value="91">91</option>
+    <option value="92">92</option>
+    <option value="93">93</option>
+    <option value="94">94</option>
+    <option value="95">95</option>
+    <option value="96">96</option>
+    <option value="97">97</option>
+    <option value="98">98</option>
+    <option value="99">99</option>
+    <option value="100">100</option>
+
+            <!-- Add options for other near point values -->
+            <option value="100">100</option>
+        </datalist>
+
+        <button type="button" class="waves-effect waves-light btn" onclick="calculate8()">Calculate</button>
+    </form>
+
+    <hr>
+    <div class="">
+        <h6 style="font-weight: bold;">1/2 Amplitude reserved</h6>
+        <p id="resultHalfAmplitude"></p>
+        <p id="resultHalfAmplitudeMessage">Try Nearest Power as you required.</p>
+    </div>
+
+    <div class="">
+        <h6 style="font-weight: bold;">2/3 Amplitude reserved</h6>
+        <p id="resultThirdAmplitude"></p>
+        <p id="resultThirdAmplitudeMessage8">Try Nearest Power as you required.</p>
     </div>
 
 
+    </form>
+    <div id="tooltip8" class="tooltip"></div>
 
+    <div class="formula">
+        <span class="instruction">How to calculate ?</span>
+        <ul>
+            <li><strong>Keep 1/2 of Amplitude Reserve:</strong> Near Add = Working Distance (D) - 1/2 Amplitude of Accommodation(D).</li>
+        <li><strong>Keep 2/3 of Amplitude Reserve:</strong> Near Add = Working Distance (D) - 2/3 Amplitude of Accommodation(D).</li> 
 
+        </ul>
+    
+    </div>
+</div>
+</div>
 
 
 

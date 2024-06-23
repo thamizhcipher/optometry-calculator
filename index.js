@@ -1,4 +1,4 @@
-// Materialize init for navbar
+  // Materialize init for navbar
 document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.sidenav');
     var instances = M.Sidenav.init(elems);
