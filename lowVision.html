@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Optometry calculator hub</title>
-
+ 
     <!-- MATERIALIZE CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- FONT -->
@@ -66,6 +66,9 @@
         <li>
             <a onclick="changeContent('opt2')" href="#!">Magnification for near</a>
         </li>
+        <li>
+            <a onclick="changeContent('opt3')" href="#!">Kestenbaum rule</a>
+        </li>
     </ul>
         
 
@@ -76,127 +79,129 @@
 
 <!-- CALCULATOR 1-->
     <div class="opt1 opt" id="calculator-opt1">
-        <h3 class="center-align">Magnification Calculator</h3>
-        <p class="instruction"> <span>Note:</span> Select the present visual acuity and required visual acuity for calculation:</p>
+        <h3 class="center-align">Magnification Calculator(Distance)</h3>
+        <p class="instruction">
+            <span>Note:</span>Provide the Present Visual Acuity and Required Visual Acuity to calculate the Magnification for Distance<br>
+            <span>Instructions:</span> Select the Present Visual Acuity and Required Visual Acuity from the dropdown menu, then click 'Calculate'.
+        </p>
         <hr>
 
         <form id="presbyopicForm">
             <label for="presentAcuity">Present Visual Acuity:</label>
-            <select id="presentAcuity" oninput="calculateMagnification()" style="display: block;width: 20%;">
-              <!-- Options for visual acuity in feet -->
-               <option value="6/6">6/6 (20/20)</option>
-              <option value="6/9">6/9 (20/30)</option>
-              <option value="6/12">6/12 (20/40)</option>
-              <option value="6/18">6/18 (20/60)</option>
-              <option value="6/24">6/24 (20/80)</option>
-              <option value="6/30">6/30 (20/100)</option>
-              <option value="6/36">6/36 (20/120)</option>
-              <option value="6/60">6/60 (20/200)</option>
-              <option value="5/6">5/6 (25/20)</option>
-              <option value="5/9">5/9 (25/30)</option>
-              <option value="5/12">5/12 (25/40)</option>
-              <option value="5/18">5/18 (25/60)</option>
-              <option value="5/24">5/24 (25/80)</option>
-              <option value="5/30">5/30 (25/100)</option>
-              <option value="5/36">5/36 (25/120)</option>
-              <option value="5/60">5/60 (25/200)</option>
-              <option value="4/6">4/6 (33/20)</option>
-              <option value="4/9">4/9 (33/30)</option>
-              <option value="4/12">4/12 (33/40)</option>
-              <option value="4/18">4/18 (33/60)</option>
-              <option value="4/24">4/24 (33/80)</option>
-              <option value="4/30">4/30 (33/100)</option>
-              <option value="4/36">4/36 (33/120)</option>
-              <option value="4/60">4/60 (33/200)</option>
-              <option value="3/6">3/6 (50/20)</option>
-              <option value="3/9">3/9 (50/30)</option>
-              <option value="3/12">3/12 (50/40)</option>
-              <option value="3/18">3/18 (50/60)</option>
-              <option value="3/24">3/24 (50/80)</option>
-              <option value="3/30">3/30 (50/100)</option>
-              <option value="3/36">3/36 (50/120)</option>
-              <option value="3/60">3/60 (50/200)</option>
-              <option value="2/6">2/6 (100/20)</option>
-              <option value="2/9">2/9 (100/30)</option>
-              <option value="2/12">2/12 (100/40)</option>
-              <option value="2/18">2/18 (100/60)</option>
-              <option value="2/24">2/24 (100/80)</option>
-              <option value="2/30">2/30 (100/100)</option>
-              <option value="2/36">2/36 (100/120)</option>
-              <option value="2/60">2/60 (100/200)</option>
-              <option value="1/6">1/6 (200/20)</option>
-              <option value="1/9">1/9 (200/30)</option>
-              <option value="1/12">1/12 (200/40)</option>
-              <option value="1/18">1/18 (200/60)</option>
-              <option value="1/24">1/24 (200/80)</option>
-              <option value="1/30">1/30 (200/100)</option>
-              <option value="1/36">1/36 (200/120)</option>
-              <option value="1/60">1/60 (200/200)</option>
-            </select>
-          
-            <br>
-          
-            <label for="requiredAcuity">Required Visual Acuity:</label>
-            <select id="requiredAcuity" oninput="calculateMagnification()" style="width: 20%;display: block;">
-              <!-- Options for visual acuity in feet -->
-              <option value="6/6">6/6 (20/20)</option>
-              <option value="6/9">6/9 (20/30)</option>
-              <option value="6/12">6/12 (20/40)</option>
-              <option value="6/18">6/18 (20/60)</option>
-              <option value="6/24">6/24 (20/80)</option>
-              <option value="6/30">6/30 (20/100)</option>
-              <option value="6/36">6/36 (20/120)</option>
-              <option value="6/60">6/60 (20/200)</option>
-              <option value="5/6">5/6 (25/20)</option>
-              <option value="5/9">5/9 (25/30)</option>
-              <option value="5/12">5/12 (25/40)</option>
-              <option value="5/18">5/18 (25/60)</option>
-              <option value="5/24">5/24 (25/80)</option>
-              <option value="5/30">5/30 (25/100)</option>
-              <option value="5/36">5/36 (25/120)</option>
-              <option value="5/60">5/60 (25/200)</option>
-              <option value="4/6">4/6 (33/20)</option>
-              <option value="4/9">4/9 (33/30)</option>
-              <option value="4/12">4/12 (33/40)</option>
-              <option value="4/18">4/18 (33/60)</option>
-              <option value="4/24">4/24 (33/80)</option>
-              <option value="4/30">4/30 (33/100)</option>
-              <option value="4/36">4/36 (33/120)</option>
-              <option value="4/60">4/60 (33/200)</option>
-              <option value="3/6">3/6 (50/20)</option>
-              <option value="3/9">3/9 (50/30)</option>
-              <option value="3/12">3/12 (50/40)</option>
-              <option value="3/18">3/18 (50/60)</option>
-              <option value="3/24">3/24 (50/80)</option>
-              <option value="3/30">3/30 (50/100)</option>
-              <option value="3/36">3/36 (50/120)</option>
-              <option value="3/60">3/60 (50/200)</option>
-              <option value="2/6">2/6 (100/20)</option>
-              <option value="2/9">2/9 (100/30)</option>
-              <option value="2/12">2/12 (100/40)</option>
-              <option value="2/18">2/18 (100/60)</option>
-              <option value="2/24">2/24 (100/80)</option>
-              <option value="2/30">2/30 (100/100)</option>
-              <option value="2/36">2/36 (100/120)</option>
-              <option value="2/60">2/60 (100/200)</option>
-              <option value="1/6">1/6 (200/20)</option>
-              <option value="1/9">1/9 (200/30)</option>
-              <option value="1/12">1/12 (200/40)</option>
-              <option value="1/18">1/18 (200/60)</option>
-              <option value="1/24">1/24 (200/80)</option>
-              <option value="1/30">1/30 (200/100)</option>
-              <option value="1/36">1/36 (200/120)</option>
-              <option value="1/60">1/60 (200/200)</option>
-            </select>
-          
+  <select id="presentAcuity" style="width: 20%;display: block;">
+    <!-- Options for visual acuity in feet --> 
+<option value="6/6">6/6</option>
+<option value="6/9">6/9</option>
+<option value="6/12">6/12</option>
+<option value="6/18">6/18</option>
+<option value="6/24">6/24</option>
+<option value="6/36">6/36</option>
+<option value="6/60">6/60</option>
+<option value="5/6">5/6</option>
+<option value="5/9">5/9</option>
+<option value="5/12">5/12</option>
+<option value="5/18">5/18</option>
+<option value="5/24">5/24</option>
+<option value="5/36">5/36</option>
+<option value="5/60">5/60</option>
+<option value="4/6">4/6</option>
+<option value="4/9">4/9</option>
+<option value="4/12">4/12</option>
+<option value="4/18">4/18</option>
+<option value="4/24">4/24</option>
+<option value="4/36">4/36</option>
+<option value="4/60">4/60</option>
+<option value="3/6">3/6</option>
+<option value="3/9">3/9</option>
+<option value="3/12">3/12</option>
+<option value="3/18">3/18</option>
+<option value="3/24">3/24</option>
+<option value="3/36">3/36</option>
+<option value="3/60">3/60</option>
+<option value="2/6">2/6</option>
+<option value="2/9">2/9</option>
+<option value="2/12">2/12</option>
+<option value="2/18">2/18</option>
+<option value="2/24">2/24</option>
+<option value="2/36">2/36</option>
+<option value="2/60">2/60</option>
+<option value="1/6">1/6</option>
+<option value="1/9">1/9</option>
+<option value="1/12">1/12</option>
+<option value="1/18">1/18</option>
+<option value="1/24">1/24</option>
+<option value="1/36">1/36</option>
+<option value="1/60">1/60</option>
 
-        </form>
-        <h5>Result:</h5>
-        <p class="result" id="result"></p>
-        <HR></HR>
+
+  </select>
+
+  <br>
+
+  <label for="requiredAcuity">Required Visual Acuity:</label>
+  <select id="requiredAcuity" style="display: block;width: 20%;">
+    <!-- Options for visual acuity in feet -->
+<option value="6/6">6/6</option>
+<option value="6/9">6/9</option>
+<option value="6/12">6/12</option>
+<option value="6/18">6/18</option>
+<option value="6/24">6/24</option>
+<option value="6/36">6/36</option>
+<option value="6/60">6/60</option>
+<option value="5/6">5/6</option>
+<option value="5/9">5/9</option>
+<option value="5/12">5/12</option>
+<option value="5/18">5/18</option>
+<option value="5/24">5/24</option>
+<option value="5/36">5/36</option>
+<option value="5/60">5/60</option>
+<option value="4/6">4/6</option>
+<option value="4/9">4/9</option>
+<option value="4/12">4/12</option>
+<option value="4/18">4/18</option>
+<option value="4/24">4/24</option>
+<option value="4/36">4/36</option>
+<option value="4/60">4/60</option>
+<option value="3/6">3/6</option>
+<option value="3/9">3/9</option>
+<option value="3/12">3/12</option>
+<option value="3/18">3/18</option>
+<option value="3/24">3/24</option>
+<option value="3/36">3/36</option>
+<option value="3/60">3/60</option>
+<option value="2/6">2/6</option>
+<option value="2/9">2/9</option>
+<option value="2/12">2/12</option>
+<option value="2/18">2/18</option>
+<option value="2/24">2/24</option>
+<option value="2/36">2/36</option>
+<option value="2/60">2/60</option>
+<option value="1/6">1/6</option>
+<option value="1/9">1/9</option>
+<option value="1/12">1/12</option>
+<option value="1/18">1/18</option>
+<option value="1/24">1/24</option>
+<option value="1/36">1/36</option>
+<option value="1/60">1/60</option>
+ 
+</select>
+
+  <br>
+</form>
+  <button onclick="calculateMagnification1()" class="waves-effect waves-light btn">Calculate</button>
+
+  <p id="output1"></p>
+
+  <hr>
+    
+ 
+
+       
         <div class="formula">
             <p class="instruction"> <span >Formula</span> 
-                Magnification = (Present Acuity / Required Acuity)
+                <ul>
+                    <li><strong> Magnification =</strong>(Required Acuity / Present Acuity)</li> 
+                </ul>
             </p>
         </div>
     </div>
@@ -206,8 +211,11 @@
 <!-- CALCULATOR 2 -->
 
     <div class="opt1 opt" id="calculator-opt2">
-        <h3 class="center-align">Near Magnification Calculator</h3>
-        <p class="instruction"><span>Instructions:</span> Select the "Present Near Visual Acuity" and "Required Near Visual Acuity" to perform the calculation</p>
+        <h3 class="center-align">Magnification Calculator(Near)</h3>
+        <p class="instruction">
+            <span>Note:</span>Provide the Present Near Visual Acuity and Required Near Visual Acuity to calculate the Magnification for Near <br>
+            <span>Instructions:</span>Select the 'Present Near Visual Acuity' and 'Required Near Visual Acuity' from the dropdown menus, then click 'Calculate'
+        </p>
         <hr>
         
         <form  id="presbyopicForm">
@@ -215,9 +223,9 @@
                 <legend>Visual Acuity</legend>
           
                 <label for="presentAcuity2">Present Near Visual Acuity:</label>
-                <select id="presentAcuity2" oninput="calculateMagnification2()" style="display: block;width:20%;">
+                <select id="presentAcuity2" style="width: 20%;display: block;">
                   <option value="N6">N6</option>
-                  <option value="N9">N9</option>
+                  <option value="N8">N8</option>
                   <option value="N12">N12</option>
                   <option value="N18">N18</option>
                   <option value="N24">N24</option>
@@ -225,28 +233,96 @@
                 </select>
           
                 <label for="requiredAcuity2">Required Near Visual Acuity:</label>
-                <select id="requiredAcuity2" oninput="calculateMagnification2()" style="display: block;width:20%;">
+                <select id="requiredAcuity2" style="width: 20%;display: block;">
                   <option value="N6">N6</option>
-                  <option value="N9">N9</option>
+                  <option value="N8">N8</option>
                   <option value="N12">N12</option>
                   <option value="N18">N18</option>
                   <option value="N24">N24</option>
                   <option value="N36">N36</option>
                 </select>
+                <br><br>
+                <!-- Button to calculate magnification -->
+                <button type="button" onclick="calculateMagnification2()" class="waves-effect waves-light btn">Calculate</button>
           
-              </fieldset>
+              </fieldset>          
           
         </form>
 
-
-        <h6>Result:</h6>
-        <p class="result" id="output2"></p>
+        <output id="output2"></output>
 
         <hr>
 
         <div class="formula">
             <p class="instruction">
-               <span>Formula:</span> <br>Magnification = Present Near Visual Acuity / Required Near Visual Acuity 
+               <span>Formula:</span> <br>
+               <ul>
+                <li><strong>Magnification =</strong>(Present Near Visual Acuity / Required Near Visual Acuity)</li> 
+            </ul>
+        
+            </p>
+        </div>
+    </div>
+
+<!-- CALCUTOR 3 -->
+
+    <div class="opt1 opt" id="calculator-opt3">
+        <h3 class="center-align">Kestenbaum Rule Calculator</h3>
+        <p class="instruction">
+            <span>Note:</span>Provide the (BCVA) Best Corrected Visual Acuity for distance to calculate the magnification for near <br>
+            <span>Instructions:</span>Select the BCVA from the dropdown menu and click 'Calculate'.
+        </p>
+        <hr>
+        
+        <form  id="presbyopicForm">
+            <label for="visualAcuity3">Select BCVA for Distance:</label>
+<select id="visualAcuity3" style="width: 20%;display: block;"> 
+    <option value="6/18">6/18</option>
+    <option value="6/24">6/24</option> 
+    <option value="6/36">6/36</option>
+    <option value="6/60">6/60</option>
+    <option value="5/6">5/6</option>
+    <option value="5/9">5/9</option>
+    <option value="5/12">5/12</option>
+    <option value="5/18">5/18</option>
+    <option value="5/24">5/24</option>
+    <option value="5/36">5/36</option>
+    <option value="5/60">5/60</option>
+    <option value="4/6">4/6</option>
+    <option value="4/9">4/9</option>
+    <option value="4/12">4/12</option>
+    <option value="4/18">4/18</option>
+    <option value="4/24">4/24</option>
+    <option value="4/36">4/36</option>
+    <option value="4/60">4/60</option>
+    <option value="3/6">3/6</option>
+    <option value="3/9">3/9</option>
+    <option value="3/12">3/12</option>
+    <option value="3/18">3/18</option>  
+    <option value="3/24">3/24</option>
+    <option value="3/36">3/36</option>
+    <option value="3/60">3/60</option>
+</select>
+
+<button onclick="calculateADD3()" class="waves-effect waves-light btn">Calculate ADD</button>
+
+<p id="result3"></p>
+<p id="addFor6by15"></p> <!-- New paragraph for displaying ADD for 6/15 -->
+  <hr>
+      
+    
+
+        </form>
+
+       
+
+        <div class="formula">
+            <p class="instruction">
+               <span>Formula:</span> <br>
+               <ul>
+                <li><strong> Magnification = </strong>1 / (BCVA)</li> 
+                <p><strong>Kestenbaum Rule:</strong> Followed to estimate the near add for initial trial based on Best Corrected Visual Acuity(BCVA) for distance.</p>
+            </ul>  
             </p>
         </div>
     </div>
@@ -257,14 +333,14 @@
 
     <section id="footer" class="scrollspy">
         <footer>
-            <h3>Locate Us At</h3>
-            <p>We will update soon!</p>
+            <h3>Contact Us At</h3>
+            <p>optometrycalculatorhub@gmail.com</p>
             
                   <a href="mailto:optometrycalcuatorhub@gmail.com">
                     <box-icon class="icons" name='gmail' type='logo' ></box-icon>
                   </a>
                     
-            <p>Copyrights © OPTOMETRY</p>
+            <p>Copyright © OPTOCALC HUB</p>
         </footer>
     </section>
 

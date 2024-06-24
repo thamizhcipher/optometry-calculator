@@ -1,15 +1,27 @@
 // CALC 1
 
-function calculateMagnification() {
+function calculateMagnification1() {
   var presentAcuitySelect = document.getElementById("presentAcuity");
   var requiredAcuitySelect = document.getElementById("requiredAcuity");
 
-  var presentAcuityIndex = presentAcuitySelect.selectedIndex;
-  var requiredAcuityIndex = requiredAcuitySelect.selectedIndex;
+  var presentAcuity = presentAcuitySelect.value;
+  var requiredAcuity = requiredAcuitySelect.value;
 
-  if (presentAcuityIndex <= requiredAcuityIndex) {
-    document.getElementById("result").innerHTML = "No magnification required, Because present visual acuity is better then required visual acuity";
-  } 
+  var presentAcuityFraction = presentAcuity.split('/');
+  var requiredAcuityFraction = requiredAcuity.split('/');
+
+  var presentNumerator = parseInt(presentAcuityFraction[0]);
+  var presentDenominator = parseInt(presentAcuityFraction[1]);
+
+  var requiredNumerator = parseInt(requiredAcuityFraction[0]);
+  var requiredDenominator = parseInt(requiredAcuityFraction[1]);
+
+  if (presentDenominator === 0 || requiredDenominator === 0) {
+    document.getElementById("output1").innerHTML = "Cannot calculate. Division by zero error.";
+  } else {
+    var magnification = (requiredNumerator * presentDenominator) / (presentNumerator * requiredDenominator);
+    document.getElementById("output1").innerHTML = "Required Magnification: " + magnification.toFixed(2) + "X";
+  }
 }
 
 
@@ -22,12 +34,28 @@ function calculateMagnification2() {
   const presentValue = parseInt(presentAcuity.substring(1));
   const requiredValue = parseInt(requiredAcuity.substring(1));
 
-  if (requiredValue >= presentValue) {
-    document.getElementById("output2").innerHTML = "No Magnification Required, Because the present near vision is better than the required near vision";
-  } else {
-    const magnification = (presentValue / requiredValue).toFixed(2);
-    document.getElementById("output2").innerHTML = "Magnification: " + magnification + "X";
+  const magnification = (presentValue / requiredValue).toFixed(2);
+  document.getElementById("output2").innerHTML = "Magnification: " + magnification + "X";
+}
+
+// calc 3
+
+function calculateADD3() {
+  var visualAcuity = document.getElementById("visualAcuity3").value;
+  var splitAcuity = visualAcuity.split("/");
+  var reciprocalVisualAcuity = 1 / (splitAcuity[0] / splitAcuity[1]);
+  var roundedReciprocalVisualAcuity = reciprocalVisualAcuity.toFixed(2);
+  
+  var decimalPart = roundedReciprocalVisualAcuity.split('.')[1];
+  var nearestPowerSentence = '';
+  
+  if(decimalPart !== '00' && decimalPart !== '25' && decimalPart !== '50' && decimalPart !== '75') {
+      nearestPowerSentence = ' (Choose nearest power as you require.)';
   }
+
+  var result = "ADD for Initial Trial : +" + (roundedReciprocalVisualAcuity >= 0 ? roundedReciprocalVisualAcuity : "") + "DS" + nearestPowerSentence;
+  document.getElementById("result3").textContent = result;
+
 }
 
 
