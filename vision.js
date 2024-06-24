@@ -79,7 +79,7 @@ function calculateACARatio() {
             }
         }
 
-        function displayTooltip(event, message) {
+        function displayTooltip1(event, message) {
             const tooltip = document.getElementById('tooltip1');
             tooltip.innerHTML = message;
             tooltip.style.display = 'block';
@@ -87,7 +87,7 @@ function calculateACARatio() {
             tooltip.style.left = (event.clientX + 10) + 'px';
         }
 
-        function hideTooltip() {
+        function hideTooltip1() {
             const tooltip = document.getElementById('tooltip1');
             tooltip.style.display = 'none';
         }
@@ -286,7 +286,7 @@ function filterOptions(inputId, listId) {
     }
 }
 
-function displayTooltip(event, message) {
+function displayTooltip6(event, message) {
     const tooltip = document.getElementById('tooltip6');
     tooltip.innerHTML = message;
     tooltip.style.display = 'block';
@@ -294,7 +294,7 @@ function displayTooltip(event, message) {
     tooltip.style.left = (event.clientX + 10) + 'px';
 }
 
-function hideTooltip() {
+function hideTooltip6() {
     const tooltip = document.getElementById('tooltip6');
     tooltip.style.display = 'none';
 }
@@ -365,7 +365,7 @@ function filterOptions(inputId, listId) {
     }
 }
 
-function displayTooltip(event, message) {
+function displayTooltip7(event, message) {
     const tooltip = document.getElementById('tooltip7');
     tooltip.innerHTML = message;
     tooltip.style.display = 'block';
@@ -373,7 +373,7 @@ function displayTooltip(event, message) {
     tooltip.style.left = (event.clientX + 10) + 'px';
 }
 
-function hideTooltip() {
+function hideTooltip7() {
     const tooltip = document.getElementById('tooltip7');
     tooltip.style.display = 'none';
 }

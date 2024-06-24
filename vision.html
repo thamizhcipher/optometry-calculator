@@ -134,7 +134,7 @@
 
         <form id="acacalculator">
             <label for="IPD">Inter Pupillary Distance(mm): </label>
-          <input list="IPDOptions" id="ipd" oninput="filterOptions('ipd', 'IPDOptions')" onmousemove="displayTooltip(event, 'Range:40 - 80 mm')" onmouseout="hideTooltip()">
+          <input list="IPDOptions" id="ipd" oninput="filterOptions('ipd', 'IPDOptions')" onmousemove="displayTooltip1(event, 'Range:40 - 80 mm')" onmouseout="hideTooltip1()">
           <datalist id="IPDOptions"> 
               
   <option value="40">40</option>
@@ -184,7 +184,7 @@
 
 
           <label for="nfd">Near fixation distance(cm): </label>
-          <input list="nfdOptions" id="nfd" oninput="filterOptions('nfd', 'nfdOptions')" onmousemove="displayTooltip(event, 'Range:5 - 100 cm')" onmouseout="hideTooltip()">
+          <input list="nfdOptions" id="nfd" oninput="filterOptions('nfd', 'nfdOptions')" onmousemove="displayTooltip1(event, 'Range:5 - 100 cm')" onmouseout="hideTooltip1()">
           <datalist id="nfdOptions"> 
                
   <option value="5">5</option>
@@ -290,7 +290,7 @@
 
 
 <label for="hn">Heterophoria at Near(PD)(Eso in + & Exo in -): </label>
-          <input list="hnOptions" id="hn" oninput="filterOptions('hn', 'hnOptions')" onmousemove="displayTooltip(event, 'Range:1 - 20 PD')" onmouseout="hideTooltip()">
+          <input list="hnOptions" id="hn" oninput="filterOptions('hn', 'hnOptions')" onmousemove="displayTooltip1(event, 'Range:1 - 20 PD')" onmouseout="hideTooltip1()">
           <datalist id="hnOptions"> 
                
   <option value="-20">-20</option>
@@ -339,7 +339,7 @@
           </datalist>
 
  <label for="hd">Heterophoria at Distance (PD)(Eso in + and Exo in -): </label>
-          <input list="hdOptions" id="hd" oninput="filterOptions('hd', 'hdOptions')" onmousemove="displayTooltip(event, 'Range:1 - 20 PD')" onmouseout="hideTooltip()">
+          <input list="hdOptions" id="hd" oninput="filterOptions('hd', 'hdOptions')" onmousemove="displayTooltip1(event, 'Range:1 - 20 PD')" onmouseout="hideTooltip1()">
           <datalist id="hdOptions"> 
                
   <option value="-20">-20</option>
@@ -397,7 +397,7 @@
             <span>Formula:</span>
             <p>AC/A Ratio = IPD + (Hn - Hd) x NFD</p>  
                 <ul>
-                <li><p> IPD - Inter Pupillary Distance (mm) </p></li> 
+                <li><p> IPD - Inter Pupillary Distance (cm) </p></li> 
                 <li><p> Hn  - Heterophoria at Near (PD)</p></li>
                 <li><p> Hd  - Heterophoria at Distance (PD)</p></li>
                 <li><p> NFD - Near Fixation Distance (m)</p></li>
@@ -794,7 +794,7 @@
         
         <form id="presbyopicForm">
             <label for="NearPointInput">Near Point of Accommodation(cm):</label>
-<input list="NearPointOptions" id="NearPointInput" oninput="filterOptions('NearPointInput', 'NearPointOptions')" onmousemove="displayTooltip(event, 'Range: 5 - 100')" onmouseout="hideTooltip()">
+<input list="NearPointOptions" id="NearPointInput" oninput="filterOptions('NearPointInput', 'NearPointOptions')" onmousemove="displayTooltip6(event, 'Range: 5 - 100')" onmouseout="hideTooltip6()">
 <datalist id="NearPointOptions"> 
         <option value="5">5</option>
     <option value="6">6</option>
@@ -896,7 +896,7 @@
 </datalist>
 
 <label for="AmplitudeInput">Amplitude of Accommodation (D):</label>
-<input list="AmplitudeOptions" id="AmplitudeInput" oninput="filterOptions('AmplitudeInput', 'AmplitudeOptions')" onmousemove="displayTooltip(event, 'Range: 1 - 20')" onmouseout="hideTooltip()">
+<input list="AmplitudeOptions" id="AmplitudeInput" oninput="filterOptions('AmplitudeInput', 'AmplitudeOptions')" onmousemove="displayTooltip6(event, 'Range: 1 - 20')" onmouseout="hideTooltip6()">
 <datalist id="AmplitudeOptions"> 
     <option value="1">1</option>
     <option value="2">2</option>
@@ -950,14 +950,14 @@
         <h3 style="text-align: center;">Hoffstetter's Amplitude Calculator</h3>
 
         <p class="instruction">
-            <span>Note:</span><p class="instruction">
+            <p class="instruction">
                 <span>Note:</span>Provide the Phoria and Compensating Fusional Vergence to calculate the prism <br>
                 <span>Instructions:</span> Enter the age and click 'Calculate'
-            </p> <br>
+            </p>
         </p>
         <form id="presbyopicForm">
             <label for="age">Age: </label>
-    <input list="ageOptions" id="age" oninput="filterOptions('age', 'ageOptions')" onmousemove="displayTooltip(event, 'Range: 1 - 63')" onmouseout="hideTooltip()">
+    <input list="ageOptions" id="age" oninput="filterOptions('age', 'ageOptions')" onmousemove="displayTooltip7(event, 'Range: 1 - 63')" onmouseout="hideTooltip7()">
     <datalist id="ageOptions">
                         <option value="1">1</option>
     <option value="2">2</option>

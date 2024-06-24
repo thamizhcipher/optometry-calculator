@@ -271,16 +271,16 @@
         <h3 class="center-align">Visual Acuity in 6 Notations</h3>
         <p class="instruction"><span>Instructions:</span> Select any one line of visual acuity from any of the 6 dropdown menus; it will simultaneously display the corresponding visual acuity line for all other notations.</p>
         <hr>
-        
+         
         <form  id="presbyopicForm">
             <fieldset id="calculationForm">
                 <legend><b>Select from dropdown</b></legend>
                 <div class="dropdown-container">
-                    <label for="dropdown1">Meters</label>
-                    <select id="dropdown1" onchange="updateDropdowns(1)" style="display: block;width: 20%!important; height: 3rem!important;border: 1px solid #f2f2f2;">
+                    <label for="dropdowns1">Meters</label>
+                    <select id="dropdowns1" onchange="updateDropdowns(1)" style="display: block;width: 20%!important; height: 3rem!important;border: 1px solid #f2f2f2;">
                         <option value="6/60">6/60</option>
                         <option value="6/36">6/36</option>
-                        <option value="6/24">6/24</option>
+                        <option value="6/24">6/24</option> 
                         <option value="6/18">6/18</option>
                         <option value="6/12">6/12</option>
                         <option value="6/9">6/9</option>
@@ -289,8 +289,8 @@
                 </div>
             
                 <div class="dropdown-container">
-                    <label for="dropdown2">Feet</label>
-                    <select id="dropdown2" onchange="updateDropdowns(2)" style="display: block;width: 20%;">
+                    <label for="dropdowns2">Feet</label>
+                    <select id="dropdowns2" onchange="updateDropdowns(2)" style="display: block;width: 20%;">
                         <option value="20/200">20/200</option>
                         <option value="20/120">20/120</option>
                         <option value="20/80">20/80</option>
@@ -302,8 +302,8 @@
                 </div>
             
                 <div class="dropdown-container">
-                    <label for="dropdown3">MAR</label>
-                    <select id="dropdown3" onchange="updateDropdowns(3)" style="display: block;width: 20%;">
+                    <label for="dropdowns3">MAR</label>
+                    <select id="dropdowns3" onchange="updateDropdowns(3)" style="display: block;width: 20%;">
                         <option value="10.0">10.0</option>
                         <option value="6.0">6.0</option>
                         <option value="4.0">4.0</option>
@@ -315,8 +315,8 @@
                 </div>
             
                 <div class="dropdown-container">
-                    <label for="dropdown4">Log MAR</label>
-                    <select id="dropdown4" onchange="updateDropdowns(4)" style="display: block;width: 20%;">
+                    <label for="dropdowns4">Log MAR</label>
+                    <select id="dropdowns4" onchange="updateDropdowns(4)" style="display: block;width: 20%;">
                         <option value="1.0">1.0</option>
                         <option value="0.78">0.78</option>
                         <option value="0.60">0.60</option>
@@ -328,8 +328,8 @@
                 </div>
             
                 <div class="dropdown-container">
-                    <label for="dropdown5">Decimal notation</label>
-                    <select id="dropdown5" onchange="updateDropdowns(5)" style="display: block;width: 20%;">
+                    <label for="dropdowns5">Decimal notation</label>
+                    <select id="dropdowns5" onchange="updateDropdowns(5)" style="display: block;width: 20%;">
                         <option value="0.1">0.1</option>
                         <option value="0.16">0.16</option>
                         <option value="0.25">0.25</option>
@@ -341,8 +341,8 @@
                 </div>
             
                 <div class="dropdown-container">
-                    <label for="dropdown6">Percentage</label>
-                    <select id="dropdown6" onchange="updateDropdowns(6)" style="display: block;width: 20%;">
+                    <label for="dropdowns6">Percentage</label>
+                    <select id="dropdowns6" onchange="updateDropdowns(6)" style="display: block;width: 20%;">
                         <option value="10">10</option>
                         <option value="16.67">16.67</option>
                         <option value="25">25</option>
@@ -380,7 +380,7 @@
                 <legend><b>Enter the prescription</b></legend>
                 <form id="calculatorForm">
                     <label for="sphere">Sphere(D): </label>
-                    <input list="sphereOptions" id="sphere3" oninput="filterOptions('sphereInput', 'sphereOptions')" onmousemove="displayTooltip(event, 'Range: -30D to +30D')" onmouseout="hideTooltip()">
+                    <input list="sphereOptions" id="sphere3" oninput="filterOptions('sphereInput', 'sphereOptions')" onmousemove="displayTooltip3(event, 'Range: -30D to +30D')" onmouseout="hideTooltip3()">
                     <datalist id="sphereOptions">  
             <option value="-30.00">-30.00</option>
             <option value="-29.75">-29.75</option>
@@ -627,7 +627,7 @@
                     </datalist>
         
                     <label for="cylinder">Cylinder(D): </label>
-                    <input list="cylinderOptions" id="cyl3" oninput="filterOptions('cylinderInput', 'cylinderOptions')" onmousemove="displayTooltip(event, 'Range: -30D to +30D')" onmouseout="hideTooltip()">
+                    <input list="cylinderOptions" id="cyl3" oninput="filterOptions('cylinderInput', 'cylinderOptions')" onmousemove="displayTooltip3(event, 'Range: -30D to +30D')" onmouseout="hideTooltip3()">
                     <datalist id="cylinderOptions">  
             <option value="-30.00">-30.00</option>
             <option value="-29.75">-29.75</option>
@@ -874,7 +874,7 @@
                     </datalist>
         
                     <label for="axis">Axis: </label>
-                    <input list="axisOptions" id="axis3" oninput="filterOptions('axisInput', 'axisOptions')" onmousemove="displayTooltip(event, 'Range: 1 - 180')" onmouseout="hideTooltip()">
+                    <input list="axisOptions" id="axis3" oninput="filterOptions('axisInput', 'axisOptions')" onmousemove="displayTooltip3(event, 'Range: 1 - 180')" onmouseout="hideTooltip3()">
                     <datalist id="axisOptions"> 
                         <option value="1">1</option>
             <option value="2">2</option>
@@ -1065,19 +1065,19 @@
             </fieldset>
         
     
-        <h6>Transposed Prescription:</h6>
-        <p class="result" id="transposedResult3"></p>
+        <h6 style="font-weight: bold;">Transposed Prescription:</h6>
+        <p class="" id="transposedResult3"></p>
 
-        <h6>Type of Astigmatism:</h6>
-        <p class="result" id="astigmatismType"></p>
+        <h6 style="font-weight: bold;">Type of Astigmatism:</h6>
+        <p class="" id="astigmatismType"></p>
     
-        <div id="tooltip" class="tooltip"></div>
+        <div id="tooltip3" class="tooltip"></div>
         <hr>
     
         <div class="formula">
-            <p class="instruction">
+            <p class="">
                 <span>Steps for Simple Transposition:</span>
-        <ul class="instruction">
+        <ul class="">
             <li><strong><span>Sum:</span></strong> Add the sphere and cylinder powers of the prescription to determine the new sphere power.</li>
             <li><strong><span>Sign:</span></strong> Change the sign of the cylinder.</li>
             <li><strong><span>Axis:</span></strong> Change the axis by 90 degrees. If the original axis is less than or equal to 90°, add 90° to the axis; if more than 90°, subtract 90°.</li>
@@ -1651,13 +1651,14 @@
         
         <br>
         
-        <div id="output">
+        <div id="output5">
             <!-- Output will be displayed here -->
         </div>
         <hr>
-        <div id="sphereValidation" class="error-message"></div>
-        <div id="cylinderValidation" class="error-message"></div>     
+        <div id="sphereValidation5" class="error-message"></div>
+        <div id="cylinderValidation5" class="error-message"></div>     
         
+        <div id="error" class="error-message"></div>
     
         <!-- <hr> -->
         <div id="tooltip5" class="tooltip"></div>

@@ -69,10 +69,13 @@ function hideTooltip1() {
 // CALC 2
 
 function updateDropdowns(index) {
-  var selectedIndex = document.getElementById('dropdown' + index).selectedIndex;
+  console.log(index);
+  var selectedIndex = document.getElementById('dropdowns' + index).selectedIndex;
+      console.log(selectedIndex);
   for (var i = 1; i <= 6; i++) {
-      var dropdown = document.getElementById('dropdown' + i); // Corrected line
+      var dropdown = document.getElementById('dropdowns' + i); // Corrected line
       dropdown.selectedIndex = selectedIndex;
+      // console.log(selectedIndex);
   }
 }
 
@@ -177,16 +180,16 @@ function filterOptions(inputId, listId) {
   }
 }
 
-function displayTooltip(event, message) {
-  const tooltip = document.getElementById('tooltip');
+function displayTooltip3(event, message) {
+  const tooltip = document.getElementById('tooltip3');
   tooltip.innerHTML = message;
   tooltip.style.display = 'block';
   tooltip.style.top = (event.clientY + 10) + 'px';
   tooltip.style.left = (event.clientX + 10) + 'px';
 }
 
-function hideTooltip() {
-  const tooltip = document.getElementById('tooltip');
+function hideTooltip3() {
+  const tooltip = document.getElementById('tooltip3');
   tooltip.style.display = 'none';
 }
 
@@ -237,9 +240,9 @@ function calculateSphericalEquivalent() {
   var cylinderInput = document.getElementById("cyl5");
   var sphere = sphereInput.value.trim(); // Get the trimmed input value
   var cylinder = cylinderInput.value.trim(); // Get the trimmed input value
-  var sphereValidation = document.getElementById("sphereValidation");
-  var cylinderValidation = document.getElementById("cylinderValidation");
-  var outputDiv = document.getElementById("output");
+  var sphereValidation = document.getElementById("sphereValidation5");
+  var cylinderValidation = document.getElementById("cylinderValidation5");
+  var outputDiv = document.getElementById("output5");
 
   // Check if the input values contain a sign (+ or -)
   if (!(/^[+-]/.test(sphere)) || !(/^[+-]/.test(cylinder))) {
@@ -279,13 +282,15 @@ function calculateSphericalEquivalent() {
 }
 
 function displayErrorMessage(message) {
-  var errorMessageElement = document.createElement("div");
+
+  var errorMessageElement = document.getElementById("error");
+  // console.log(errorMessageElement);
   errorMessageElement.innerText = message;
   errorMessageElement.className = "error-message";
-  document.body.appendChild(errorMessageElement);
+  // document.body.appendChild(errorMessageElement);
   setTimeout(function () {
-      errorMessageElement.remove();
-  }, 5000);
+      errorMessageElement.innnerHTML="";
+  }, 50000);
 }
 
 function displayTooltip(event, message) {
