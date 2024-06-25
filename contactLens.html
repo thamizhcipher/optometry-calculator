@@ -845,19 +845,20 @@
               <option value="20">20</option> 
             </datalist>
           
-            <button onclick="calculatePrescription1()" class="waves-effect waves-light btn">Calculate</button>
-          
-            <h6>Result:</h6>
-            <p id="result1"></p>
-            <p id="message1" class="message"></p>
-          
+           
         </form>
+        <button onclick="calculatePrescription1()" class="waves-effect waves-light btn">Calculate</button>
+          
+        <h6>Result:</h6>
+        <p class="result" id="result1"></p>
+        <p id="message1" class=" result message"></p>
+      
         <hr>
         
         <div class="formula">
             <p class="instruction"><span>Formula:</span>
-                <p>DE = DL / (1 - d * DL)<p>
-                <ul>
+                <p class="instruction-formula">DE = DL / (1 - d * DL)<p>
+                <ul class="instruction-formula">
                   <li>DE = Effective Power(D)</li>
                   <li>DL = Lens Power(D)</li>
                   <li>d = Vertex Distance(m)</li>
@@ -1011,20 +1012,20 @@
         
             </datalist>
         
-            <button onclick="calculate2()" class="waves-effect waves-light btn">Calculate</button>
-            <p id="result2"></p>
+            
             <hr>
         
             
         </form>
-
-        <p class="result" id="result2"></p>
+        <button onclick="calculate2()" class="waves-effect waves-light btn">Calculate</button>
+        <p id="result2" class="result"></p>
+        
 
 
         <div class="formula">
             <p class="instruction">
                 <span>How it calculates ?</span>
-                <ul>
+                <ul class="instruction-formula">
                     <li><strong>Base Curve(mm) =</strong> 337.5 / Average K (D)</li> 
                 </ul>
                 
@@ -1063,22 +1064,22 @@
             </div>
         
             <!-- Calculate Prescription button -->
-            <div class="input-container">
-                <button id="calculateButton" class="waves-effect waves-light btn" onclick="calculatePrescription()">Apply LARS</button>
-                <div id="alertMessage">Inputs must be in the range of 0 to 180.</div>
-            </div>
-        
-            <!-- Output result -->
-            <div id="resultPrescription"></div>
+            
         
         </form>
+        <div class="input-container">
+            <button id="calculateButton" class="waves-effect waves-light btn" onclick="calculatePrescription()">Apply LARS</button>
+            <div id="alertMessage">Inputs must be in the range of 0 to 180.</div>
+        </div>
     
+        <!-- Output result -->
+        <div id="resultPrescription" class="result"></div>
         <hr>
     
         <div class="formula">
             <p class="">
                 Expand of LARS(CAAS) <br>
-                <ul>
+                <ul class="instruction-formula">
                     <li><strong>L -</strong> Left (Clockwise)</li>
                     <li><strong>A -</strong> Add</li>
                     <li><strong>R -</strong> Right(Anti-Clockwise)</li>

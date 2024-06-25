@@ -387,20 +387,20 @@
 
           </datalist>
 
-<button type="button" class="waves-effect waves-light btn" onclick="calculateACARatio()">Calculate</button>
-</form>
 
-<p id="result1"></p>
+</form>
+<button type="button" class="waves-effect waves-light btn" onclick="calculateACARatio()">Calculate</button>
+<p id="result1" class="result"></p>
 
         <HR></HR>
         <div class="formula">
             <span>Formula:</span>
-            <p>AC/A Ratio = IPD + (Hn - Hd) x NFD</p>  
-                <ul>
-                <li><p> IPD - Inter Pupillary Distance (cm) </p></li> 
-                <li><p> Hn  - Heterophoria at Near (PD)</p></li>
-                <li><p> Hd  - Heterophoria at Distance (PD)</p></li>
-                <li><p> NFD - Near Fixation Distance (m)</p></li>
+            <p class="instruction-formula">AC/A Ratio = IPD + (Hn - Hd) x NFD</p>  
+                <ul class="instruction-formula">
+                <li><p class="instruction-formula"> IPD - Inter Pupillary Distance (cm) </p></li> 
+                <li><p class="instruction-formula"> Hn  - Heterophoria at Near (PD)</p></li>
+                <li><p class="instruction-formula"> Hd  - Heterophoria at Distance (PD)</p></li>
+                <li><p class="instruction-formula"> NFD - Near Fixation Distance (m)</p></li>
                 </ul>
         </div>
     </div>
@@ -525,20 +525,20 @@
             <option value="+2.00">+2.00 DS</option>
             <option value="+3.00">+3.00 DS</option>
         </select>
+    </form>
 
         <button class="waves-effect waves-light btn" onclick="calculateACARatio2()">Calculate</button>
 
         <h6>Result:</h6>
-        <p id="acARatioResult2"></p>
-        <p id="acConvergence2"></p>
+        <p class="result" id="acARatioResult2"></p>
+        <p class="result" id="acConvergence2"></p>
         <hr>
-        </form>
-
+      
         <div class="formula">
             <p class="instruction">
                 <span>Formula:</span>  <br>
-                <p>AC/A Ratio = (DL - DO) / p</p>
-            <ul>
+                <p class="instruction-formula">AC/A Ratio = (DL - DO) / p</p>
+            <ul class="instruction-formula">
                 <li>DL - the Deviation with lens prism(D)</li>
                 <li>DO - Original Deviation without lens Prism(D)</li>
                 <li>p - Power of the lens used (D)</li>
@@ -623,18 +623,18 @@
     <option value="30">30</option>
 </select>
 
-<button onclick="calculatePrism3()" class="waves-effect waves-light btn">Calculate</button>
 
-<p id="output3"></p>
         </form>
     
+        <button onclick="calculatePrism3()" class="waves-effect waves-light btn">Calculate</button>
 
+        <p id="output3" class="result"></p>
     
         <hr>
     
         <div class="formula">
             <span class="">Formula:</span> <br>
-            <ul>
+            <ul class="instruction-formula">
                 <li><strong>P = 2/3(p) - 1/3 (CFV)</strong></li>
                 <li><strong>P - </strong>Prism(PD)</li>
                 <li><strong>p - </strong>phoria(PD)</li>
@@ -675,21 +675,22 @@
             }
         </script>
     </select>
+</form>
 
     <!-- Button to trigger calculation -->
     <button onclick="calculatePrism4()" class="waves-effect waves-light btn">Calculate</button>
 
     <!-- Display the result -->
-    <p id="outputMessage4">Prism: <span id="result4">0.00</span>(PD)</p>
+    <p id="outputMessage4" class="result">Prism: <span id="result4">0.00</span>(PD)</p>
 <hr>
     <!-- Formula Used section -->
    
 
-        </form>
+        
         <div class="formula">
             <p class="">
-                <span>Formula:</span> br
-                <ul>
+                <span>Formula:</span>
+                <ul class="instruction-formula">
                     <strong>P = (1/3) * G - (2/3) * L</strong>  
                     <li>P = Prism to be prescribed</li>
                     <li>G = Greater of the two lateral limits(PD) (base-in or base-out)</li>
@@ -745,24 +746,24 @@
         
             </select>
         
-        
+        </form>
         
             <button onclick="submitTest5()" style="margin-top: 1rem;" class="waves-effect waves-light btn">Submit Test</button>
         
         
         
-            <div id="result5"></div>
+            <div id="result5" class="result"></div>
         
-        </form>
+       
         
         <hr>
     <h6 style="font-weight: bold;">Park's 3 Stpes</h6>
-    <ul>
+    <ul class="instruction-formula">
         <li><strong>Note:</strong>By noting how the hypertropia changes with eye movements and head tilts, you can figure out which eye muscles might be causing the misalignment by the following steps.</li>
         <li><strong>Stpe 1:</strong> which eye is hypertropic in primary position?</li>
         <li><strong>Step 2:</strong> Whether the hypertropia increases on right or left gaze?</li>
         <li><strong>Step 3:</strong> Whether the hypertropia increases on right or left head tilt?</li>
-<h6 style="font-weight: bold;">Hints</h6>
+<h6 style="font-weight: bold;color: black;">Hints</h6>
 <li>If all 3 steps are right <strong> - Left Inferior oblique</strong></li>
 <li>If all 3 steps are left <strong>  - Right Inferior oblique</strong></li>
 
@@ -920,20 +921,21 @@
     <option value="20">20</option>
  
 </datalist>
+</form>
 
 <button onclick="calculate6()" class="waves-effect waves-light btn">Calculate</button>
 
-<p id="message6"></p>
+<p id="message6" class="result"></p>
 
 <hr>
 
-        </form>
+        
         
 
         <div class="formula">
             <p class="instruction"> <span>How to calculate ?</span>
 
-            <ul>
+            <ul class="instruction-formula">
                 <li><strong>Amplitude of Accommodation(D):</strong> 100 / Near Point of Accommodation (cm)</li>
                 <li><strong>Near Point of Accommodation(cm):</strong> 100 / Amplitude of Accommodation (D)</li>
             </ul>
@@ -1025,27 +1027,30 @@
 
     </datalist>
 
+</form>
+
     <button class="waves-effect waves-light btn" onclick="calculateAmplitudes7()">Calculate</button>
 
 
 <!-- Results -->
-<h6>Amplitude of Accommodation</h6>
+<!-- <h6>Amplitude of Accommodation</h6> -->
+ <br>
+ <br>
 <div>
-    <output id="resultMinimum7"></output>
+    <output id="resultMinimum7" class="result"></output>
 </div>
 <div>
-    <output id="resultMean7"></output>
+    <output id="resultMean7" class="result"></output>
 </div>
 <div>
-    <output id="resultMaximum7"></output>
+    <output id="resultMaximum7" class="result"></output>
 </div>
 
-        </form>
         <div id="tooltip7" class="tooltip"></div>
     
         <div class="formula">
             <span class="instruction">Hoffstetter's Formula</span>
-            <ul>
+            <ul class="instruction-formula">
                 <li><strong>Minimum:</strong>   15  - (0.25 x Age)</li>
                 <li><strong>Average:</strong> 18.5  - (0.30 x Age)</li>
                 <li><strong>Maximum:</strong>   25  - (0.40 x Age)</li>
@@ -1068,7 +1073,7 @@
     </p>
     <form id="presbyopicForm">
         <label for="readingDistance">Reading Distance (cm):</label>
-        <input list="readingDistanceOptions" id="readingDistance" oninput="filterOptions('readingDistance', 'readingDistanceOptions')" onmousemove="displayTooltip('5 - 100(cm)', event)" onmouseout="hideTooltip()">
+        <input list="readingDistanceOptions" id="readingDistance" oninput="filterOptions('readingDistance', 'readingDistanceOptions')" onmousemove="displayTooltip8('5 - 100(cm)', event)" onmouseout="hideTooltip8()">
         <datalist id="readingDistanceOptions">
             <!-- Options for reading distance values 5 to 100 -->
             <option value="5">5</option>
@@ -1173,7 +1178,7 @@
         </datalist>
 
         <label for="nearPoint">Near Point of Accommodation (cm):</label>
-        <input list="nearPointOptions" id="nearPoint" oninput="filterOptions('nearPoint', 'nearPointOptions')" onmousemove="displayTooltip('5 - 100(cm)', event)" onmouseout="hideTooltip()">
+        <input list="nearPointOptions" id="nearPoint" oninput="filterOptions('nearPoint', 'nearPointOptions')" onmousemove="displayTooltip8('5 - 100(cm)', event)" onmouseout="hideTooltip8()">
         <datalist id="nearPointOptions">
             <!-- Options for near point values 5 to 100 -->
             <option value="5">5</option>
@@ -1276,30 +1281,29 @@
             <!-- Add options for other near point values -->
             <option value="100">100</option>
         </datalist>
-
-        <button type="button" class="waves-effect waves-light btn" onclick="calculate8()">Calculate</button>
     </form>
+        <button type="button" class="waves-effect waves-light btn" onclick="calculate8()">Calculate</button>
+   
 
     <hr>
     <div class="">
         <h6 style="font-weight: bold;">1/2 Amplitude reserved</h6>
-        <p id="resultHalfAmplitude"></p>
-        <p id="resultHalfAmplitudeMessage">Try Nearest Power as you required.</p>
+        <p class="result" id="resultHalfAmplitude"></p>
+        <p class="result" id="resultHalfAmplitudeMessage">Try Nearest Power as you required.</p>
     </div>
 
     <div class="">
         <h6 style="font-weight: bold;">2/3 Amplitude reserved</h6>
-        <p id="resultThirdAmplitude"></p>
-        <p id="resultThirdAmplitudeMessage8">Try Nearest Power as you required.</p>
+        <p class="result" id="resultThirdAmplitude"></p>
+        <p class="result" id="resultThirdAmplitudeMessage8">Try Nearest Power as you required.</p>
     </div>
 
 
-    </form>
     <div id="tooltip8" class="tooltip"></div>
 
     <div class="formula">
         <span class="instruction">How to calculate ?</span>
-        <ul>
+        <ul class="instruction-formula">
             <li><strong>Keep 1/2 of Amplitude Reserve:</strong> Near Add = Working Distance (D) - 1/2 Amplitude of Accommodation(D).</li>
         <li><strong>Keep 2/3 of Amplitude Reserve:</strong> Near Add = Working Distance (D) - 2/3 Amplitude of Accommodation(D).</li> 
 

@@ -489,6 +489,15 @@ nav ul a
 }
 
 
+.instruction-formula
+{
+    font-size: 1.1rem;
+    color: blue;
+}
+
+
+
+
 @media  screen and (max-width:763px) 
 {
     .quote

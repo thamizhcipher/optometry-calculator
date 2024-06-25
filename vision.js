@@ -381,16 +381,16 @@ function hideTooltip7() {
 // CALC 8
 
         // Function to display tooltip
-        function displayTooltip(message, event) {
+        function displayTooltip8(message, event) {
             const tooltip = document.getElementById('tooltip8');
             tooltip.innerHTML = message;
             tooltip.style.display = 'block';
-            tooltip.style.left = (event.pageX + 10) + 'px';
-            tooltip.style.top = (event.pageY + 10) + 'px';
+            tooltip.style.left = (event.clientX + 10) + 'px';
+            tooltip.style.top = (event.clientY + 10) + 'px';
         }
 
         // Function to hide tooltip
-        function hideTooltip() {
+        function hideTooltip8() {
             const tooltip = document.getElementById('tooltip8');
             tooltip.style.display = 'none';
         }

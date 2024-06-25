@@ -247,13 +247,14 @@
 
         </form>
         <button onclick="calculatePower()" class="waves-effect waves-light btn">Calculate</button>
-        <div id="result"></div>
+        <br> <br>
+        <div id="result" class="result"></div>
         
 
         <HR></HR>
         <div class="formula">
             <p class="instruction"> <span >Formula:</span></p>
-            <ul>
+            <ul class="instruction-formula">
                 <li>Compensating lens for working distance  = 1/D</li>
                 <li>D = Distance from patient's eye to retinoscope(cm)</li>
             </ul>
@@ -351,12 +352,12 @@
                         <option value="66.67">66.67</option>
                         <option value="100">100</option>
                     </select> </fieldset>
-                <b>How to convert?</b>
-                <p>1. Snellen Meter to Feet = MAR x 20</p>
-                <p>2. Snellen Meter to MAR = Divide the Denominator by Numerator of Snellen Meter notation</p>
-                <p>3. LogMAR = log₁₀(MAR) </p>
-                <p>4. Snellen Meter to Decimal = Divide the Numerator by Denominator of Snellen Meter notation</p>
-                <p>5. Snellen Decimal to percentage = Decimal * 100</p>
+                <b class="instruction" style="color: black;">How to convert?</b>
+                <p class="instruction-formula">1. Snellen Meter to Feet = MAR x 20</p>
+                <p class="instruction-formula">2. Snellen Meter to MAR = Divide the Denominator by Numerator of Snellen Meter notation</p>
+                <p class="instruction-formula">3. LogMAR = log₁₀(MAR) </p>
+                <p class="instruction-formula">4. Snellen Meter to Decimal = Divide the Numerator by Denominator of Snellen Meter notation</p>
+                <p class="instruction-formula">5. Snellen Decimal to percentage = Decimal * 100</p>
             
         </form>
 
@@ -1066,18 +1067,18 @@
         
     
         <h6 style="font-weight: bold;">Transposed Prescription:</h6>
-        <p class="" id="transposedResult3"></p>
+        <p class="result" id="transposedResult3"></p>
 
         <h6 style="font-weight: bold;">Type of Astigmatism:</h6>
-        <p class="" id="astigmatismType"></p>
+        <p class="result" id="astigmatismType"></p>
     
         <div id="tooltip3" class="tooltip"></div>
         <hr>
     
         <div class="formula">
             <p class="">
-                <span>Steps for Simple Transposition:</span>
-        <ul class="">
+                <span class="instruction" style="color: black;">Steps for Simple Transposition:</span>
+        <ul class="instruction-formula">
             <li><strong><span>Sum:</span></strong> Add the sphere and cylinder powers of the prescription to determine the new sphere power.</li>
             <li><strong><span>Sign:</span></strong> Change the sign of the cylinder.</li>
             <li><strong><span>Axis:</span></strong> Change the axis by 90 degrees. If the original axis is less than or equal to 90°, add 90° to the axis; if more than 90°, subtract 90°.</li>
@@ -1121,12 +1122,12 @@
         </form>
     
        
-    <div id="result4" style="font-size:1.10rem ;"></div>
+    <div id="result4" class="result" style="font-size:1.10rem ;"></div>
 
 
         <div class="formula">
-            <p class="instruction"> <span>How to calculate?</span>
-                <ul>
+            <p class="instruction" style="color: black;"> <span>How to calculate?</span>
+                <ul class="instruction-formula">
                     <strong>W = D x tanθ</strong>  
                     <li>W = Height or width</li>
                     <li>D = Denominator of the line</li>
@@ -1651,7 +1652,7 @@
         
         <br>
         
-        <div id="output5">
+        <div id="output5" class="result">
             <!-- Output will be displayed here -->
         </div>
         <hr>
@@ -1663,7 +1664,7 @@
         <!-- <hr> -->
         <div id="tooltip5" class="tooltip"></div>
         <div class="formula">
-            <p class="instruction"> <span>Formula for Spherical Equivalent:</span>
+            <p class="instruction-formula"> <span>Formula for Spherical Equivalent:</span>
                  Spherical Equivalent = Sphere + (Cylinder / 2)</p>
         </div>
     </div>
@@ -1719,10 +1720,10 @@
     
         <button class="waves-effect waves-light btn" onclick="convertPrescription()">Convert</button>
     
-        <div class="output" id="output6"></div>
+        <div class=" result output" id="output6"></div>
         <hr>
-        <h6>How it converts</h6>
-        <ul>
+        <h6 class="formula"><span>How it converts</span></h6>
+        <ul class="instruction-formula">
             <li><strong>One Sphere and One Cylinder:</strong> The same will be a prescription.</li>
             <li>To convert the Gross retinoscopy to Net retinoscopy of Spherical & Spherocylinder prescription, simply minus the 'working distance compensation power' from the Sphere power.</li>
         </ul>
